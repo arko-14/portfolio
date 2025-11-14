@@ -1930,6 +1930,9 @@
                     <a href="#projects" role="menuitem">Projects</a>
                     <a href="#experience" role="menuitem">Experience</a>
                     <a href="#research" role="menuitem">Research</a>
+                    <a href="#blog" role="menuitem">Blog</a>
+                    <a href="Resume_Sandipan.pdf" target="_blank" role="menuitem">Resume</a>
+
                     <a href="#contact" role="menuitem">Contact</a>
                 </div>
                 <button class="mobile-menu" aria-label="Toggle menu" aria-expanded="false">
@@ -1942,21 +1945,19 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <p class="hero-subtitle">Hi, I am </p>
-                <h1 class="hero-title">
-                    Sandipan Paul<br>
-                    <span>Building intelligent systems,backend to ML</span>
-                </h1>
-                <p class="hero-description">
-            
-                </p>
-                <a href="#projects"><button>Check out my work</button></a>
-            </div>
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <p class="hero-subtitle">Hi, I'm</p>
+            <h1 class="hero-title">
+                Sandipan Paul<br>
+                <span>ML and backend engineer building intelligent systems</span>
+            </h1>
+            <a href="#projects"><button>Check out my work</button></a>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -1971,6 +1972,23 @@
                         I have worked on projects related to electronics,machine learning and hardware stuffs..
                         My interest lies in backend development,ML,DL & Natural language processing.
                     </p>
+                    <div class="learning-now" style="
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    border: 1px solid rgba(100, 255, 218, 0.4);
+    background: rgba(17, 34, 64, 0.9);
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+">
+    <div style="font-size:1rem; font-weight:600; color:var(--accent-color); margin-bottom:0.5rem;">
+        What I'm learning right now
+    </div>
+    <ul style="list-style:none; padding-left:0; margin:0; color:var(--light-slate); font-size:0.9rem;">
+        <li>📚 Reading: <strong>Raschka’s LLM book</strong></li>
+        <li>🧪 Experimenting: <strong>DistilBERT finetuning & RAG pipelines</strong></li>
+        <li>🧩 Exploring: <strong>MoE, RL, & Diffusion models</strong></li>
+    </ul>
+</div>
                     <p>
                         Here are a few technologies I've been working with recently:
                     </p>
@@ -2243,11 +2261,30 @@
           </a>
         </li>
       </ul>
+      
 
       </p>
     </div>
   </div>
 </section>
+
+<!-- Blog Section -->
+<section id="blog" class="projects">
+  <div class="container">
+    <h2 class="section-title">Blog</h2>
+    <div id="blog-grid" class="project-grid" aria-live="polite"></div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="https://medium.com/@psandipan20" 
+         class="view-more-btn" 
+         target="_blank" 
+         rel="noopener">
+        View all on Medium
+      </a>
+    </div>
+  </div>
+</section>
+
 
 
     <!-- Contact Section -->
@@ -2629,8 +2666,46 @@
                 text.setAttribute('data-text', content);
             });
         });
+        
     </script>
+    <script>
+async function loadBlogs() {
+  try {
+    const res = await fetch('blogs.json', { cache: 'no-store' });
+    if (!res.ok) return;
+
+    const posts = await res.json();
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    const grid = document.getElementById('blog-grid');
+    grid.innerHTML = posts.map(p => `
+      <article class="project-card tilt-element">
+        <div class="project-image">
+          <img src="${p.cover}" alt="${p.title}">
+        </div>
+        <div class="project-content">
+          <div class="project-tags">
+            ${(p.tags || []).map(t => `<span class="project-tag">${t}</span>`).join('')}
+          </div>
+          <h3 class="project-title">${p.title}</h3>
+          <p class="project-description">
+            ${new Date(p.date).toLocaleDateString()}
+          </p>
+          <div class="project-links">
+            <a href="${p.url}" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+    `).join('');
+  } catch (e) {
+    console.log("Blog load skipped", e);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadBlogs);
+</script>
+
 </body>
 </html>
-
-
