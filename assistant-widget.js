@@ -383,7 +383,7 @@
 
     // current work / what are you working on
     if (q.includes("working on now") || q.includes("currently working") || q.includes("these days") || q.includes("right now")) {
-      return "Right now I'm deep into LLMs and ML systems: Raschka’s LLM book, stats & probability revision";
+      return "Right now I'm deep into LLMs and ML systems: Raschka’s LLM book, stats & probability revision and into Pytorch too";
     }
 
     // projects
@@ -401,6 +401,11 @@
       return "Paperdigest is a research-paper summarizer. It uses Gemini for main summaries, falls back to TextRank/Gensim, shows reading time, supports TTS, and lets you download or share summaries via a clean Flask web UI.";
     }
 
+    //other projects
+    if (q.includes("other projects") || q.includes("other work")) {
+      return "Other projects include CNN and Transformer re-implementations in TF, an interactive chatbot called as Law vector, and various smaller AI/ML experiments present in my Github repos.";
+    }
+
     // learning / what is he learning
     if (q.includes("learning") || q.includes("studying") || q.includes("what is he learning")) {
       return "I'm focusing on LLM internals, MoE, RAG, fine-tuning, plus solid ML math: stats, probability, and optimization. Parallelly, I'm polishing SQL/DBMS for ML-oriented interviews.";
@@ -408,7 +413,7 @@
 
     // experience / internships
     if (q.includes("experience") || q.includes("intern") || q.includes("internship") || q.includes("work history")) {
-      return "He’s done AI/ML work at Strydden Technologies and a robotics internship at Just Robotics, mixing Python/Flask/FastAPI with hardware (ESP32, microcontrollers) and ML/NLP projects.";
+      return "I have done AI/ML work at Strydden Technologies and a robotics internship at Just Robotics, mixing Python/Flask/FastAPI with hardware (ESP32, microcontrollers) and ML/NLP projects.";
     }
 
     // resume / cv
