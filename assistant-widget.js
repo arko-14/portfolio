@@ -56,8 +56,8 @@
       position: absolute;
       bottom: 72px;
       right: 0;
-      width: 320px;
-      max-height: 420px;
+      width: 500px;        /* increased from 320px */
+      max-height: 580px;   /* increased from 420px */
       background: #020617;
       border-radius: 16px;
       border: 1px solid rgba(148, 163, 184, 0.4);
@@ -306,9 +306,9 @@
         </p>
         <div class="sp-ai-tag-row">
           <span class="sp-ai-tag" data-question="Show me your projects">"Show me your projects"</span>
-          <span class="sp-ai-tag" data-question="What are you working on now?">"What are you working on now?"</span>
           <span class="sp-ai-tag" data-question="Tell me about Observa">"Tell me about Observa"</span>
-          <span class="sp-ai-tag" data-question="What are you learning these days?">"What are you learning these days?"</span>
+          <span class="sp-ai-tag" data-question="Contact me">"How to contact you?"</span>
+           <span class="sp-ai-tag" data-question="Contact me">"Tell me about yourself"</span>
         </div>
       </div>
 
@@ -408,7 +408,7 @@
       q.includes("currently working") ||
       q.includes("these days") ||
       q.includes("right now") ||
-      q.includes("what are you focusing on") ||
+      q.includes("what are you learning these days") ||
       q.includes("what are you focusing these days")
     ) {
       return "Right now I’m deep into LLMs and ML systems: Raschka’s LLM book, stats & probability revision, and getting more hands-on with PyTorch and applied LLM workflows.";
@@ -433,9 +433,7 @@
     if (
       q.includes("learning") ||
       q.includes("studying") ||
-      q.includes("what are you learning") ||
-      q.includes("what is he learning") ||
-      q.includes("what you learning these days")
+      q.includes("what is he learning")
     ) {
       return "I’m focusing on LLM internals, MoE, RAG, fine-tuning strategies, and solid ML math like stats, probability, and optimization. In parallel, I’m brushing up SQL/DBMS for ML-oriented interviews.";
     }
@@ -493,6 +491,7 @@
     if (
       q.includes("about you") ||
       q.includes("about sandipan") ||
+      q.includes("who are you sandipan") ||
       q.includes("who is sandipan")
     ) {
       return "I’m an ML-leaning backend engineer from EEE, who likes building complete pipelines: data → models → APIs → monitoring, with a big interest in LLM/applied-ML roles.";
@@ -506,7 +505,7 @@
       q.includes("how do i contact you") ||
       q.includes("how can i contact you")
     ) {
-      return "Easiest way to reach me is email (psandipan20@gmail.com) or via LinkedIn or ping me through X — all are linked in the Contact section of this site.";
+      return "Easiest way to reach me is email (psandipan20@gmail.com) or via LinkedIn — both are linked in the Contact section of this site.";
     }
 
     // github
@@ -536,7 +535,7 @@
       q.includes("collaborate") ||
       q.includes("work with you")
     ) {
-      return "I’m mainly looking for roles around ML/LLM engineering or ML-heavy backend. If you’re hiring or want to collaborate, you can mail me or ping me on LinkedIn.";
+      return "I’m mainly looking for roles around ML/LLM engineering or ML-heavy backend. If you’re hiring or want to collaborate, you can mail me or ping me on LinkedIn/email or even X too";
     }
 
     // strengths / what are you good at
