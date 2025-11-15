@@ -173,6 +173,7 @@
       border: 1px solid rgba(148, 163, 184, 0.6);
       color: #cbd5f5;
       background: rgba(15, 23, 42, 0.85);
+      cursor: pointer;
     }
 
     .sp-ai-chat-log {
@@ -299,14 +300,15 @@
       </div>
 
       <div class="sp-ai-card-body">
-        <p><strong>Quick intro:</strong> My virtual bot,answering any questions about my projects and what I’m learning.</p>
+        <p><strong>Quick intro:</strong> My virtual bot, answering questions about my projects and what I’m learning.</p>
         <p class="sp-ai-hint">
           Try things like:
         </p>
         <div class="sp-ai-tag-row">
-          <span class="sp-ai-tag">"What’s he working on now?"</span>
-          <span class="sp-ai-tag">"Tell me about Observa"</span>
-          <span class="sp-ai-tag">"What’s he learning these days?"</span>
+          <span class="sp-ai-tag" data-question="Show me your projects">"Show me your projects"</span>
+          <span class="sp-ai-tag" data-question="What are you working on now?">"What are you working on now?"</span>
+          <span class="sp-ai-tag" data-question="Tell me about Observa">"Tell me about Observa"</span>
+          <span class="sp-ai-tag" data-question="What are you learning these days?">"What are you learning these days?"</span>
         </div>
       </div>
 
@@ -316,7 +318,7 @@
         <input
           type="text"
           class="sp-ai-input"
-          placeholder="Ask something about his work or projects..."
+          placeholder="Ask something about my work or projects..."
         />
         <button class="sp-ai-send-btn">Send</button>
       </div>
@@ -330,6 +332,7 @@
   const chatLog = root.querySelector(".sp-ai-chat-log");
   const input = root.querySelector(".sp-ai-input");
   const sendBtn = root.querySelector(".sp-ai-send-btn");
+  const suggestionTags = root.querySelectorAll(".sp-ai-tag[data-question]");
 
   // ---- 3. OPEN/CLOSE HELPERS ----
   function openCard() {
@@ -371,81 +374,199 @@
   function getBotReply(raw) {
     const q = normalize(raw);
 
-    // greetings
-    if (/(hi|hello|hey|sup)\b/.test(q)) {
-      return "Hey! I’m a small assistant for this site. Ask me about my projects, current work, or what I’m learning.";
+    // ---- PROJECTS / SHOW ME YOUR PROJECTS (HIGH PRIORITY) ----
+    if (
+      q.includes("show me your projects") ||
+      q.includes("your projects") ||
+      q.includes("projects you have done") ||
+      q.includes("projects have you done") ||
+      q.includes("featured projects") ||
+      q.includes("portfolio projects") ||
+      q.includes("project list") ||
+      q.includes("list of projects") ||
+      q.includes("main projects") ||
+      q.includes("top projects") ||
+      q.includes("project") ||
+      q.includes("projects")
+    ) {
+      return "My main projects: Observa (NLP + MLOps pipeline with FastAPI, Gradio, MLflow, Prometheus, Grafana), Paperdigest (AI research-paper summarizer with Gemini + classic summarizers), and several CNN/Transformer re-implementations. You’ll see more in the Projects section and on my GitHub.";
     }
 
-    // who is / about you
-    if (q.includes("who are you") || q.includes("what are you") || q.includes("assistant")) {
-      return "I’m a lightweight bot tuned only for Sandipan’s portfolio. I know about his projects, internships, skills, and learning path.";
+    // who is / about the assistant
+    if (
+      q.includes("who are you") ||
+      q.includes("what are you") ||
+      q.includes("assistant") ||
+      q.includes("who is this bot")
+    ) {
+      return "I’m a small custom assistant for this portfolio. I only know about my projects, internships, skills, and what I’m currently learning.";
     }
 
     // current work / what are you working on
-    if (q.includes("working on now") || q.includes("currently working") || q.includes("these days") || q.includes("right now")) {
-      return "Right now I'm deep into LLMs and ML systems: Raschka’s LLM book, stats & probability revision and into Pytorch too";
-    }
-
-    // projects
-    if (q.includes("project") || q.includes("projects")) {
-      return "His standout projects: Observa (NLP + MLOps pipeline with FastAPI, Gradio, MLflow, Prometheus, Grafana) and Paperdigest (AI research-paper summarizer with Gemini + traditional summarizers). I have also done classic CNN/transformer re-implementations.";
+    if (
+      q.includes("working on now") ||
+      q.includes("currently working") ||
+      q.includes("these days") ||
+      q.includes("right now") ||
+      q.includes("what are you focusing on") ||
+      q.includes("what are you focusing these days")
+    ) {
+      return "Right now I’m deep into LLMs and ML systems: Raschka’s LLM book, stats & probability revision, and getting more hands-on with PyTorch and applied LLM workflows.";
     }
 
     // Observa
     if (q.includes("observa")) {
-      return "Observa is a NLP + MLOps project: DistilBERT fine-tuning, FastAPI backend, Gradio UI, MLflow tracking, DVC for data/pipelines, and Prometheus + Grafana for live monitoring — all Dockerized.";
+      return "Observa is my NLP + MLOps project: DistilBERT fine-tuning, FastAPI backend, Gradio UI, MLflow tracking, DVC for data/pipelines, and Prometheus + Grafana for live monitoring — all Dockerized.";
     }
 
     // Paperdigest
     if (q.includes("paperdigest")) {
-      return "Paperdigest is a research-paper summarizer. It uses Gemini for main summaries, falls back to TextRank/Gensim, shows reading time, supports TTS, and lets you download or share summaries via a clean Flask web UI.";
+      return "Paperdigest is my research-paper summarizer. It uses Gemini for the main summaries, falls back to TextRank/Gensim, shows reading time, supports TTS, and lets you download or share summaries via a clean Flask web UI.";
     }
 
-    //other projects
+    // other projects
     if (q.includes("other projects") || q.includes("other work")) {
-      return "Other projects include CNN and Transformer re-implementations in TF, an interactive chatbot called as Law vector, and various smaller AI/ML experiments present in my Github repos.";
+      return "Apart from Observa and Paperdigest, I’ve built CNN and Transformer implementations from scratch, a law-focused chatbot, and various smaller ML/AI experiments that live in my GitHub repos.";
     }
 
-    // learning / what is he learning
-    if (q.includes("learning") || q.includes("studying") || q.includes("what is he learning")) {
-      return "I'm focusing on LLM internals, MoE, RAG, fine-tuning, plus solid ML math: stats, probability, and optimization. Parallelly, I'm polishing SQL/DBMS for ML-oriented interviews.";
+    // learning / what are you learning
+    if (
+      q.includes("learning") ||
+      q.includes("studying") ||
+      q.includes("what are you learning") ||
+      q.includes("what is he learning") ||
+      q.includes("what you learning these days")
+    ) {
+      return "I’m focusing on LLM internals, MoE, RAG, fine-tuning strategies, and solid ML math like stats, probability, and optimization. In parallel, I’m brushing up SQL/DBMS for ML-oriented interviews.";
     }
 
     // experience / internships
-    if (q.includes("experience") || q.includes("intern") || q.includes("internship") || q.includes("work history")) {
-      return "I have done AI/ML work at Strydden Technologies and a robotics internship at Just Robotics, mixing Python/Flask/FastAPI with hardware (ESP32, microcontrollers) and ML/NLP projects.";
+    if (
+      q.includes("experience") ||
+      q.includes("intern") ||
+      q.includes("internship") ||
+      q.includes("work history") ||
+      q.includes("work experience")
+    ) {
+      return "I’ve done AI/ML work at Strydden Technologies and a robotics internship at Just Robotics, combining Python/Flask/FastAPI with hardware (ESP32, microcontrollers) and ML/NLP-style projects.";
     }
 
     // resume / cv
     if (q.includes("resume") || q.includes("cv")) {
-      return "You can view his resume via the Resume link in the navbar. If you’re evaluating him, that’s the best single-page overview of skills, projects, and experience.";
+      return "You can view my resume using the Resume link in the navbar — that’s the best single-page overview of my skills, projects, and experience.";
     }
 
     // skills / tech stack
-    if (q.includes("skills") || q.includes("stack") || q.includes("tech stack") || q.includes("technologies")) {
-      return "Main stack: Python, Flask/FastAPI, Docker, SQL/PostgreSQL, basic cloud (AWS/GCP), plus ML/DL with PyTorch, TensorFlow/Keras, and NLP tooling. Also hands-on with embedded/robotics from his Just Robotics work.";
+    if (
+      q.includes("skills") ||
+      q.includes("stack") ||
+      q.includes("tech stack") ||
+      q.includes("technologies") ||
+      q.includes("what do you use") ||
+      q.includes("what tools do you use")
+    ) {
+      return "My main stack: Python, Flask/FastAPI, Docker, SQL/PostgreSQL, some AWS/GCP, plus ML/DL with PyTorch, TensorFlow/Keras, and NLP tooling. I also have embedded/robotics experience from my Just Robotics work.";
     }
 
     // blog / writing
     if (q.includes("blog") || q.includes("writing") || q.includes("medium")) {
-      return "He writes practical breakdowns of his projects on Medium—look for posts around Observa, Paperdigest, and ML experiments linked from the Blog section.";
+      return "I write practical breakdowns of my projects on Medium — especially around Observa, Paperdigest, and ML experiments. You can jump there from the Blog section of this site.";
     }
 
     // college / academics
-    if (q.includes("college") || q.includes("university") || q.includes("degree")) {
-      return "He’s pursuing a B.E. in Electrical and Electronics Engineering, with a focus on AI for power systems and applied ML projects alongside coursework.";
+    if (q.includes("college") || q.includes("university") || q.includes("degree") || q.includes("branch")) {
+      return "I’m pursuing a B.E. in Electrical and Electronics Engineering, with a strong tilt towards AI for power systems and applied ML projects alongside my coursework.";
     }
 
-    // generic "tell me about him"
-    if (q.includes("about him") || q.includes("about sandipan") || q.includes("who is sandipan")) {
-      return "Sandipan is an ML-leaning backend engineer in EEE. He likes building end-to-end systems: data → models → APIs → monitoring, and is aiming for ML / LLM-applied roles.";
+    // why EEE -> ML
+    if (
+      q.includes("why ml") ||
+      q.includes("why machine learning") ||
+      q.includes("eee and ml") ||
+      q.includes("electrical and ml") ||
+      q.includes("why shift to ml")
+    ) {
+      return "EEE gave me a good base in maths and systems thinking. ML clicked for me during projects and hackathons, so I started using that same problem-solving mindset to build end-to-end ML and LLM systems.";
+    }
+
+    // about you / who is sandipan
+    if (
+      q.includes("about you") ||
+      q.includes("about sandipan") ||
+      q.includes("who is sandipan")
+    ) {
+      return "I’m an ML-leaning backend engineer from EEE, who likes building complete pipelines: data → models → APIs → monitoring, with a big interest in LLM/applied-ML roles.";
+    }
+
+    // contact / email / how to reach you
+    if (
+      q.includes("contact") ||
+      q.includes("reach you") ||
+      q.includes("email") ||
+      q.includes("how do i contact you") ||
+      q.includes("how can i contact you")
+    ) {
+      return "Easiest way to reach me is email (psandipan20@gmail.com) or via LinkedIn or ping me through X — all are linked in the Contact section of this site.";
+    }
+
+    // github
+    if (q.includes("github")) {
+      return "You can find my code on GitHub (link in the footer and Projects section). That’s where my active repos like Observa, Paperdigest, and ML experiments live.";
+    }
+
+    // linkedin
+    if (q.includes("linkedin")) {
+      return "My LinkedIn is linked in the Contact section and footer. It has a quick overview of my experience, internships, and updates.";
+    }
+
+    // kaggle
+    if (q.includes("kaggle")) {
+      return "I have a Kaggle profile too — linked in the footer — where I explore datasets, experiments, and some ML notebooks.";
+    }
+
+    // roles / hiring / opportunities / collab
+    if (
+      q.includes("hire you") ||
+      q.includes("hiring") ||
+      q.includes("open to work") ||
+      q.includes("job") ||
+      q.includes("role") ||
+      q.includes("opportunity") ||
+      q.includes("collab") ||
+      q.includes("collaborate") ||
+      q.includes("work with you")
+    ) {
+      return "I’m mainly looking for roles around ML/LLM engineering or ML-heavy backend. If you’re hiring or want to collaborate, you can mail me or ping me on LinkedIn.";
+    }
+
+    // strengths / what are you good at
+    if (
+      q.includes("strengths") ||
+      q.includes("what are you good at") ||
+      q.includes("what are your strengths")
+    ) {
+      return "I’m good at taking things from idea to working system: clear problem breakdown, building robust backends around ML, and making sure stuff is observable and debuggable, not just ‘a model in a notebook’.";
+    }
+
+    // hobbies / outside of work
+    if (
+      q.includes("hobbies") ||
+      q.includes("outside of work") ||
+      q.includes("outside work")
+    ) {
+      return "Outside pure coding, I like tinkering with hardware/robots, reading about AI/LLMs, and occasionally writing about what I build so it’s easier for future me (and others) to follow.";
+    }
+
+    // greetings (kept late so it doesn’t override specific questions)
+    if (/(^|\s)(hi|hello|hey|sup)\b/.test(q)) {
+      return "Hey! I’m a small assistant for this portfolio. Ask me about my projects, skills, internships, or what I’m learning right now.";
     }
 
     // fallback – short + helpful
-    return "I may not fully get that, but I’m best at questions about my projects, skills, internships, current focus, and learning path.";
+    return "I might not fully get that, but I’m best at questions about my projects, skills, internships, current focus, and learning path.";
   }
 
-  // ---- 6. SEND HANDLER ----
+  // ---- 6. SEND HANDLERS ----
   function handleSend() {
     const text = (input.value || "").trim();
     if (!text) return;
@@ -453,7 +574,14 @@
     input.value = "";
 
     const reply = getBotReply(text);
-    // slight delay for more human feel
+    setTimeout(() => addMessage(reply, false), 220);
+  }
+
+  function sendSuggestion(question) {
+    const text = (question || "").trim();
+    if (!text) return;
+    addMessage(text, true);
+    const reply = getBotReply(text);
     setTimeout(() => addMessage(reply, false), 220);
   }
 
@@ -463,6 +591,14 @@
       e.preventDefault();
       handleSend();
     }
+  });
+
+  // click handlers for suggestion tags
+  suggestionTags.forEach((tag) => {
+    tag.addEventListener("click", () => {
+      const q = tag.getAttribute("data-question") || tag.textContent || "";
+      sendSuggestion(q);
+    });
   });
 
   // ---- 7. AUTO-OPEN ON FIRST VISIT ----
