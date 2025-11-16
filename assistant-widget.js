@@ -308,7 +308,6 @@
           <span class="sp-ai-tag" data-question="Show me your projects">"Show me your projects"</span>
           <span class="sp-ai-tag" data-question="Tell me about Observa">"Tell me about Observa"</span>
           <span class="sp-ai-tag" data-question="Contact me">"How to contact you?"</span>
-           <span class="sp-ai-tag" data-question="Contact me">"Tell me about yourself"</span>
         </div>
       </div>
 
