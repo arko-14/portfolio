@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
+    
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sandipan14.tech/">
     <meta property="og:title" content="Sandipan Paul | ML & Backend Engineer">
-    <meta property="og:description" content="Building intelligent systems and robust backends. Explore my projects in NLP,ML and DL">
+    <meta property="og:description" content="Building intelligent systems and robust backends. Explore my projects in NLP, ML and DL">
     <meta property="og:image" content="https://sandipan14.tech/images/profile-2.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
@@ -16,11 +17,15 @@
     <meta name="twitter:title" content="Sandipan Paul | ML & Backend Engineer">
     <meta name="twitter:description" content="Building intelligent systems and robust backends. Explore my projects in NLP, Computer Vision, and Robotics.">
     <meta name="twitter:image" content="https://sandipan14.tech/images/grafan.jpg">
+    
     <meta name="theme-color" content="#0f0f0f">
     <meta name="p:domain_verify" content="ebf1f75747364c412c0092139d36eddf" />
     <title>Sandipan</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
     <script type="module" src="analytics.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
     <style>
         /* Updated Color Variables */
@@ -477,6 +482,33 @@
             text-align: center;
             color: var(--light-slate);
             font-size: 0.9rem;
+        }
+        
+        /* Scroll to top button */
+        #scrollToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 40px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(100, 255, 218, 0.3);
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: var(--text-color);
+            transform: translateY(-5px);
         }
         
         /* Enhanced Responsive Styles */
@@ -1960,7 +1992,7 @@
             <p class="hero-subtitle">Hi, I'm</p>
             <h1 class="hero-title">
                 Sandipan Paul<br>
-                <span>ML and backend engineer building intelligent systems</span>
+                <span id="typewriter-text" style="color: var(--slate)">ML and backend engineer</span>
             </h1>
             <a href="#projects"><button>Check out my work</button></a>
         </div>
@@ -2093,18 +2125,12 @@
                             <svg class="postgresql-icon" style="width:1em;height:1em" viewBox="0 0 24 24">
                                 <path fill="#336791" d="M17.128 0a10.134 10.134 0 0 0-2.755.403l-.063.02A10.922 10.922 0 0 0 12.6.258C11.422.238 10.41.524 9.594 1 8.79.721 7.122.24 5.364.336 4.14.403 2.804.775 1.814 1.82.827 2.865.305 4.482.415 6.682c.03.607.203 1.597.49 2.879s.69 2.783 1.193 4.152c.503 1.37 1.054 2.6 1.915 3.436.43.419 1.022.771 1.72.742.49-.02.933-.235 1.315-.552.186.245.385.352.566.451.228.125.45.21.68.266.413.103 1.12.241 1.948.1.282-.047.579-.139.875-.27.01.33.024.653.037.98.04 1.036.067 1.993.378 2.832.05.137.187.843.727 1.466.54.624 1.598 1.013 2.803.755.85-.182 1.931-.51 2.649-1.532.71-1.01 1.03-2.459 1.093-4.809.016-.127.035-.235.055-.336l.169.015h.02c.907.041 1.891-.088 2.713-.47.728-.337 1.279-.678 1.68-1.283.1-.15.21-.331.24-.643s-.149-.8-.446-1.025c-.595-.452-.969-.28-1.37-.197a6.27 6.27 0 0 1-1.202.146c1.156-1.947 1.985-4.015 2.458-5.845.28-1.08.437-2.076.45-2.947.013-.871-.058-1.642-.58-2.309C21.36.6 19.067.024 17.293.004c-.055-.001-.11-.002-.165-.001zm-.047.64c1.678-.016 3.822.455 5.361 2.422.346.442.449 1.088.437 1.884-.013.795-.16 1.747-.429 2.79-.522 2.02-1.508 4.375-2.897 6.488a.756.756 0 0 0 .158.086c.29.12.951.223 2.27-.048.332-.07.575-.117.827.075a.52.52 0 0 1 .183.425.704.704 0 0 1-.13.336c-.255.383-.758.746-1.403 1.045-.571.266-1.39.405-2.116.413-.364.004-.7-.024-.985-.113l-.018-.007c-.11 1.06-.363 3.153-.528 4.108-.132.77-.363 1.382-.804 1.84-.44.458-1.063.734-1.901.914-1.038.223-1.795-.017-2.283-.428-.487-.41-.71-.954-.844-1.287-.092-.23-.14-.528-.186-.926-.046-.398-.08-.885-.103-1.434a51.426 51.426 0 0 1-.03-2.523 3.061 3.061 0 0 1-1.552.76c-.689.117-1.304.002-1.671-.09a2.276 2.276 0 0 1-.52-.2c-.17-.092-.332-.195-.44-.398a.56.56 0 0 1-.057-.38.6.6 0 0 1 .183-.33c.146-.142.353-.176.492-.203.417-.079 1.01-.098 1.64-.132.63-.034 1.298-.1 1.855-.344.057-.032.115-.116.115-.172a.265.265 0 0 0-.042-.145l-.018-.022c-.137-.17-.411-.273-.768-.33-.357-.056-.791-.054-1.242-.03-.438.024-.906.062-1.353.1-.224.02-.407.032-.518.036a.557.557 0 0 1-.367-.125.607.607 0 0 1-.193-.26c-.057-.143-.037-.353.037-.582.074-.23.214-.413.469-.566.338-.2.875-.256 1.434-.27.06-.002.12-.002.18 0 .6 0 1.208.052 1.795.121 1.416.169 2.795.446 3.923.96.926.422 1.548.898 1.869 1.451.288.493.36 1.045.359 1.671v.011c-.44.371-.099.69-.168 1.004-.465 2.143-1.52 4.23-2.433 5.927a.8.8 0 0 0 .385.48c.638.332 1.538.444 2.213.069.199-.11.336-.276.444-.49.193-.38.296-.98.356-1.874.125-1.874.253-3.371.344-4.879.036-.6.066-.794-.022-1.283-.115-.652-.493-1.058-1.02-1.35-.612-.34-1.5-.458-2.62-.473a.981.981 0 0 1-.598-.201 1.008 1.008 0 0 1-.286-.358.878.878 0 0 1-.093-.537.971.971 0 0 1 .5-.734c.263-.163.674-.236 1.15-.235h.027c.707.003 1.52.12 2.212.36 1.437.498 2.533 1.413 2.62 2.653.024.35-.023.698-.082 1.082a.993.993 0 0 0 .046.72c.134.387.49.65.809.681a1 1 0 0 0 .675-.149c.413-.274.62-1.022.451-2.125-.353-2.312-2.712-3.866-5.583-4.146-.557-.054-1.108-.056-1.621-.001a6.705 6.705 0 0 0-1.58.37 4.708 4.708 0 0 0-.94.512 3.025 3.025 0 0 0-.625.551c-.145.175-.266.343-.368.512-.5.075-.182.248-.22.486-.044.26.025.552.195.816.217.341.5.512.924.628.461.127 1.133.173 1.717.052a.97.97 0 0 0 .757-.65 1.01 1.01 0 0 0-.048-.79.979.979 0 0 0-.617-.491c-.285-.088-.95-.093-1.443.1-.066.027-.175.035-.29.028-.116-.006-.16-.06-.173-.093-.132-.337.045-.523.136-.634a2.348 2.348 0 0 1 .51-.34 5.144 5.144 0 0 1 .714-.298 7.054 7.054 0 0 1 1.534-.31c.31-.028.624-.032.926-.006a8.477 8.477 0 0 1 2.64.69 7.089 7.089 0 0 1 1.647.922 4.37 4.37 0 0 1 .995 1.072 2.94 2.94 0 0 1 .357 1.03c.044.33.043.705-.043 1.113-.106.5-.334 1.01-.703 1.424 1.589-1.385 2.876-3.35 3.697-5.397.266-.668.432-1.323.506-1.897.074-.574.06-1.032-.145-1.29-.703-.882-2.636-1.278-4.211-1.29a8.985 8.985 0 0 0-2.64.347 6.896 6.896 0 0 0-1.799.873 4.252 4.252 0 0 0-1.119 1.127 2.886 2.886 0 0 0-.405.8 1.414 1.414 0 0 0-.035.816.839.839 0 0 0 .384.477c.245.162.551.187.862.214a13.425 13.425 0 0 0 1.504.07c1.279.033 2.745-.1 3.805-.694.155-.087.304-.21.415-.354s.176-.315.126-.472c-.107-.339-.517-.388-.798-.35-.193.027-.34.62-.35.627-1.18.582-2.799.674-4.115.65-.313-.006-.614-.018-.897-.04-.075-.005-.068-.025-.08-.039-.097-.114-.142-.246-.118-.366.019-.095.07-.179.138-.26.283-.334.761-.613 1.34-.84a7.06 7.06 0 0 1 1.964-.511c.739-.083 1.537-.072 2.303.056.871.145 1.677.445 2.297.96.306.254.546.569.689.934.088.225.152.479.153.76 0 .222-.039.464-.122.677-.127.326-.375.598-.71.777-.634.337-1.566.352-2.468.097-.59-.166-1.182-.48-1.575-.99-.382-.497-.584-1.123-.69-1.854-.109-.741-.117-1.621.08-2.448.07-.3.182-.605.35-.889.101-.171.221-.325.36-.473.132-.137.287-.255.439-.363a6.216 6.216 0 0 1 1.553-.686c.642-.178 1.328-.278 1.994-.281.315-.001.611.018.895.063z"/>
                             </svg>
-                            PostgreSQL
-                        </span>
-                        <span class="skill">
-                            <svg class="sql-icon" style="width:1em;height:1em" viewBox="0 0 24 24">
-                                <path fill="#00758F" d="M4.5 3.5A1.5 1.5 0 0 0 3 5v14a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 19V5a1.5 1.5 0 0 0-1.5-1.5h-15zm0 1.5h15V19h-15V5zm7.617 3.327c-1.622 0-3.064.723-3.064 2.09 0 1.144.983 1.808 2.424 2.09l1.516.361c.639.121 1.28.361 1.28.964 0 .723-.942.964-1.581.964-.821 0-1.741-.321-1.741-1.044v-.12H9.349v.12c0 1.627 1.418 2.331 3.024 2.331 1.662 0 3.304-.663 3.304-2.252 0-1.186-1.023-1.87-2.465-2.171l-1.535-.341c-.52-.121-1.22-.322-1.22-.883 0-.603.78-.884 1.4-.884.818 0 1.54.281 1.54.964v.12h1.582v-.12c0-1.567-1.339-2.19-3.062-2.19zM6.5 9h1v6h-1V9zm0-2h1v1h-1V7zm8.5 5.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
-                            </svg>
                             SQL
                         </span>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images\profile-2.jpg" alt="Profile picture">
+                    <img src="images/profile-2.jpg" alt="Profile picture">
                 </div>
             </div>
         </div>
@@ -2116,7 +2142,7 @@
             <div class="project-grid">
                 <div class="project-card tilt-element">
                     <div class="project-image">
-                        <img src="images\grafan.jpg" alt="Observa - NLP MLOps Pipeline UI">
+                        <img src="images/grafan.jpg" alt="Observa - NLP MLOps Pipeline UI">
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
@@ -2147,7 +2173,7 @@
 
                 <div class="project-card tilt-element">
                     <div class="project-image">
-                        <img src="images\Screenshot 2025-03-19 232850.png" alt="Project 1">
+                        <img src="images/Screenshot 2025-03-19 232850.png" alt="Project 1">
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
@@ -2295,7 +2321,15 @@
                 always open.I'm open to collaborate on projects and cool ideas,tinkering with things is my way out..Whether you have a question or just want to say hi, I'll try 
                 my best to get back to you!
             </p>
-            <a href="mailto:psandipan20@gmail.com"><button>Say Hello</button></a>
+            
+            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                <a href="mailto:psandipan20@gmail.com"><button>Say Hello</button></a>
+                
+                <button id="copyEmailBtn" style="font-size: 0.9rem;">
+                    <i class="far fa-copy"></i> Copy Email
+                </button>
+                <span id="copyFeedback" style="display:none; color: var(--accent-color);">Copied!</span>
+            </div>
             
             <h3 style="margin-top: 3rem; color: var(--light-slate); font-size: 1.2rem;">Connect With Me</h3>
             <div class="social-links">
@@ -2330,6 +2364,10 @@
             <p>Designed & Built with ❤️ by Sandipan</p>
         </div>
     </footer>
+
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         // Enhanced Mobile Menu
@@ -2660,6 +2698,52 @@
             document.querySelectorAll('.layered-text').forEach(text => {
                 const content = text.textContent;
                 text.setAttribute('data-text', content);
+            });
+        });
+
+        // 🟢 NEW JAVASCRIPT FEATURES 
+        
+        // 1. Typewriter Effect Logic
+        const app = document.getElementById('typewriter-text');
+        const typewriter = new Typewriter(app, {
+            loop: true,
+            delay: 75,
+        });
+
+        typewriter
+            .typeString('ML and backend engineer')
+            .pauseFor(2000)
+            .deleteAll()
+            .typeString('Building intelligent systems')
+            .pauseFor(2000)
+            .deleteAll()
+            .typeString('Exploring MLOps')
+            .pauseFor(2000)
+            .start();
+
+        // 2. Scroll to Top Button Logic
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+        window.addEventListener("scroll", () => {
+             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollBtn.style.display = "flex"; // Changed to flex to keep centering
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        });
+        
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 3. Copy Email Logic
+        document.getElementById('copyEmailBtn').addEventListener('click', function() {
+            const email = 'psandipan20@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const feedback = document.getElementById('copyFeedback');
+                feedback.style.display = 'inline';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 2000);
             });
         });
         
