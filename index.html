@@ -7,10 +7,15 @@
     
     <meta property="og:title" content="Sandipan | ML Engineer">
     <meta property="og:image" content="https://sandipan14.tech/images/og-image.png?v=2">
-<meta property="twitter:image" content="https://sandipan14.tech/images/og-image.png?v=2">
+    <meta property="twitter:image" content="https://sandipan14.tech/images/og-image.png?v=2">
     <meta property="og:description" content="Booting portfolio... Architecture: Python/React. Status: Online.">
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 256 256%22><rect width=%22256%22 height=%22256%22 fill=%22%23111111%22 rx=%2260%22 ry=%2260%22/><text x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2300ff41%22 font-family=%22Courier New, monospace%22 font-weight=%22bold%22 font-size=%22180px%22>S</text></svg>">
+
+    <script type="module">
+      import { inject } from 'https://cdn.jsdelivr.net/npm/@vercel/analytics/+esm';
+      inject();
+    </script>
 
     <style>
         /* --- 1. THEME VARIABLES --- */
@@ -168,35 +173,31 @@
         /* UPDATED: LARGER PROJECT PREVIEW */
         .hover-img {
             position: absolute; 
-            top: -200px; /* Moved up higher to fit the larger height */
+            top: -200px; 
             right: 0;
-            width: 500px; /* Increased from 240px -> 400px */
-            height: 225px; /* 16:9 Aspect Ratio */
+            width: 500px; 
+            height: 225px; 
             object-fit: cover;
-            border: 1px solid var(--accent); /* Adds a cool green border */
+            border: 1px solid var(--accent); 
             background: #000;
             opacity: 0; 
             transform: translateY(20px) scale(0.9);
             transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
             pointer-events: none; 
-            z-index: 20; /* High z-index to stay on top */
+            z-index: 20; 
             filter: grayscale(100%);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.9); /* Stronger shadow for depth */
+            box-shadow: 0 30px 60px rgba(0,0,0,0.9); 
         }
 
-        /* Hover State - No changes needed to logic, just ensures visibility */
         .list-row:hover .hover-img { 
             opacity: 1; 
             transform: translateY(0) scale(1); 
-            filter: grayscale(0%); /* Shows color on hover */
+            filter: grayscale(0%); 
         }
         
-        /* IMPORTANT: Mobile Fix */
-        /* Hide large previews on phones so they don't block the screen */
         @media (max-width: 600px) {
             .hover-img { display: none !important; }
         }
-        .list-row:hover .hover-img { opacity: 1; transform: translateY(0) scale(1); filter: grayscale(0%); }
 
         .paper-grid { display: flex; flex-direction: column; gap: 12px; }
         .paper-card {
@@ -461,15 +462,13 @@
             }
         }
         
-        // 4. HARDCODED BLOGS (Fixed the "No Link" issue)
+        // 4. HARDCODED BLOGS
         function loadBlogs() {
             const container = document.getElementById('blog-list');
-            
-            // Edit these links with your actual specific blog URLs
             const blogs = [
                 {
                     title: "I Just Wanted to See What My Model Was Doing… So I Built Observa",
-                    link: "https://medium.com/@psandipan20", // Base link
+                    link: "https://medium.com/@psandipan20", 
                     date: "2025"
                 }
             ];
@@ -536,8 +535,7 @@
             console.log("%c👋 Looking for bugs? Or looking to hire? Email me: psandipan20@gmail.com", "color: #888; font-family: sans-serif;");
         };
     </script>
-
-    <script src="analytics.js"></script>
+    
     <div id="chatbot-container"></div>
     <script src="assistant-widget.js"></script>
 
