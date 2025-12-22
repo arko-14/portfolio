@@ -23,7 +23,7 @@
             --bg: #050505;
             --grid: #1a1a1a;
             --text-main: #e0e0e0;
-            --text-dim: #888;
+            --text-dim: #a0a0a0; /* Made lighter for better visibility */
             --accent: #00ff41; /* Hacker Green */
             --accent-blue: #3b82f6;
             --border: #222;
@@ -165,12 +165,50 @@
         }
         .list-row:hover { border-bottom-color: var(--text-dim); background: var(--card-hover); padding-left: 10px; }
         
-        .list-left { display: flex; gap: 20px; }
-        .year { color: var(--text-dim); font-size: 0.9rem; font-family: 'Consolas', monospace; }
-        .title { font-weight: 600; color: var(--text-main); }
-        .meta { font-size: 0.8rem; color: var(--text-dim); }
+        .list-left { display: flex; gap: 20px; align-items: baseline; }
+        .year { color: var(--text-dim); font-size: 0.9rem; font-family: 'Consolas', monospace; flex-shrink: 0; }
+        
+        .title-group { display: flex; flex-direction: column; }
+        .title { font-weight: 600; color: var(--text-main); display: block;}
+        
+        /* UPDATED VISIBILITY FOR PROJECT DESCRIPTION */
+        .project-desc { 
+            font-size: 0.75rem; 
+            color: var(--text-dim); /* Auto-switches color based on theme */
+            margin-top: 4px; 
+            font-weight: 400; 
+            max-width: 300px; 
+            display: block; 
+            line-height: 1.4; 
+        }
 
-        /* UPDATED: LARGER PROJECT PREVIEW */
+        .meta { font-size: 0.8rem; color: var(--text-dim); text-align: right;}
+
+        /* WARNING BADGE for Offline Project */
+        .status-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+        }
+        .status-offline {
+            background: rgba(255, 68, 68, 0.1);
+            color: #ff4444;
+            border: 1px solid #ff4444;
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(255, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 68, 68, 0); }
+        }
+
+        /* LARGER PROJECT PREVIEW */
         .hover-img {
             position: absolute; 
             top: -200px; 
@@ -196,7 +234,21 @@
         }
         
         @media (max-width: 600px) {
-            .hover-img { display: none !important; }
+            .header-layout { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
+            .profile-img { width: 80px; height: 80px; }
+            .hover-img { display: none; }
+            .spotlight { display: none; }
+
+            /* FIX: Mobile Background Glitch */
+            body { background-attachment: scroll; }
+
+            .list-row { flex-direction: column; gap: 8px; align-items: flex-start; }
+            
+            /* Better Mobile Text Alignment */
+            .meta { text-align: left; margin-left: 0; margin-top: 4px; } 
+            
+            .title { display: inline-block; }
+            .status-badge { display: block; margin-left: 0; margin-top: 4px; width: fit-content;}
         }
 
         .paper-grid { display: flex; flex-direction: column; gap: 12px; }
@@ -253,13 +305,6 @@
             background: var(--accent); color: #000; box-shadow: 0 0 15px var(--accent); cursor: pointer;
         }
         .retro-btn::after { content: '_'; animation: blink 1s infinite; }
-
-        @media (max-width: 600px) {
-            .header-layout { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
-            .profile-img { width: 80px; height: 80px; }
-            .hover-img { display: none; }
-            .spotlight { display: none; }
-        }
     </style>
 </head>
 <body>
@@ -306,19 +351,27 @@
         <div id="projects" class="section-header reveal">01 // Projects</div>
 
         <div class="reveal">
-            <a href="https://auto-trailer-agent.onrender.com/" target="_blank" class="list-row">
+            <a href="https://auto-trailer-agent.onrender.com/" target="_blank" class="list-row" id="project-ai-director">
                 <div class="list-left">
                     <span class="year">2025</span>
-                    <span class="title">AI Director</span>
+                    <div class="title-group">
+                        <div>
+                            <span class="title" style="display:inline;">AI Director</span>
+                            <span id="ai-director-badge"></span> </div>
+                        <span class="project-desc">Agentic video generation using LangChain & VideoDB.</span>
+                    </div>
                 </div>
-                <span class="meta">Python / LangChain / VideoDB</span>
+                <span class="meta">Python / LangChain</span>
                 <img src="images/project1.jpg" class="hover-img" alt="AI Director Preview">
             </a>
 
             <a href="https://github.com/arko-14/nlp-mlops-pipeline" target="_blank" class="list-row">
                 <div class="list-left">
                     <span class="year">2025</span>
-                    <span class="title">Observa</span>
+                    <div class="title-group">
+                        <span class="title">Observa</span>
+                        <span class="project-desc">End-to-end NLP pipeline with DVC & Grafana monitoring.</span>
+                    </div>
                 </div>
                 <span class="meta"> DVC / MLFlow / Grafana</span>
                 <img src="images/grafan.webp" class="hover-img" alt="Observa Preview">
@@ -327,7 +380,10 @@
             <a href="https://github.com/arko-14/Law-Vector" target="_blank" class="list-row">
                 <div class="list-left">
                     <span class="year">2025</span>
-                    <span class="title">Law Vector</span>
+                    <div class="title-group">
+                        <span class="title">Law Vector</span>
+                        <span class="project-desc">RAG-based legal document retrieval using Pinecone.</span>
+                    </div>
                 </div>
                 <span class="meta"> Flask / Pinecone / BART</span>
                 <img src="images/project2.jpg" class="hover-img" alt="Law Vector Preview">
@@ -477,7 +533,9 @@
                 <a href="${blog.link}" target="_blank" class="list-row" style="border-bottom: 0;">
                     <div class="list-left">
                         <span class="year">></span>
-                        <span class="title" style="font-weight: 400;">${blog.title}</span>
+                        <div class="title-group">
+                            <span class="title" style="font-weight: 400;">${blog.title}</span>
+                        </div>
                     </div>
                     <span class="meta">READ</span>
                 </a>
@@ -519,12 +577,32 @@
             if(timeContainer) timeContainer.innerText = timeString;
         }
 
+        // 7. PROJECT ALERT LOGIC (Offline Badge)
+        function checkProjectStatus() {
+            // --- CONFIGURATION ---
+            const targetDate = new Date('2026-01-01'); // Badge removed after Dec 31, 2025
+            // ---------------------
+
+            const now = new Date();
+            const badgeContainer = document.getElementById('ai-director-badge');
+
+            if (now < targetDate) {
+                // IT IS BEFORE JAN 1st: Show "DEMO PAUSED" Badge.
+                if(badgeContainer) {
+                    badgeContainer.innerHTML = '<span class="status-badge status-offline">⚠️ DEMO PAUSED</span>';
+                }
+            } else {
+                // IT IS AFTER JAN 1st: Do nothing (Badge remains empty)
+            }
+        }
+
         window.onload = function() {
             typeWriter();
             loadBlogs();
             animateSpotlight();
             setInterval(updateTime, 1000);
             updateTime();
+            checkProjectStatus(); // Run the date check
 
             // CONSOLE SIGNATURE
             console.log(
