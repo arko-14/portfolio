@@ -114,10 +114,12 @@
         .header-layout { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; }
 
         .profile-img {
-            width: 100px; height: 100px; border-radius: 12px; object-fit: cover;
-            border: 1px solid var(--border); filter: grayscale(100%) contrast(1.1);
-            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+    width: 100px; height: 100px; border-radius: 12px; 
+    object-fit: cover;
+    object-position: top; /* <--- ADD THIS LINE to focus on the face */
+    border: 1px solid var(--border); filter: grayscale(100%) contrast(1.1);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
         .profile-img:hover {
             filter: grayscale(0%) contrast(1);
             transform: scale(1.05) rotate(3deg);
@@ -336,7 +338,7 @@
                     Specialized in <span style="color: var(--text-main); font-weight: bold;">Machine Learning</span> and deep-diving into MLOps.
                 </p>
             </div>
-            <img src="images/pfp.jpg" alt="Sandipan" class="profile-img">
+            <img src="images/pfp-1.jpeg" alt="Sandipan" class="profile-img">
         </div>
 
         <div class="status-box reveal">

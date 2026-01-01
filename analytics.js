@@ -1,11 +1,11 @@
 /* analytics.js */
-import { inject } from 'https://cdn.jsdelivr.net/npm/@vercel/analytics/+esm';
-import { injectSpeedInsights } from 'https://cdn.jsdelivr.net/npm/@vercel/speed-insights/+esm';
+//import { inject } from 'https://cdn.jsdelivr.net/npm/@vercel/analytics/+esm';
+//import { injectSpeedInsights } from 'https://cdn.jsdelivr.net/npm/@vercel/speed-insights/+esm';
 
 // Initialize Web Analytics
-inject();
+//inject();
 
 // Initialize Speed Insights
-injectSpeedInsights();
+//injectSpeedInsights();
 
-console.log("Vercel Analytics & Speed Insights loaded via ESM.");
+//console.log("Vercel Analytics & Speed Insights loaded via ESM.");
