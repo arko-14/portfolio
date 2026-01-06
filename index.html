@@ -353,18 +353,18 @@
         <div id="projects" class="section-header reveal">01 // Projects</div>
 
         <div class="reveal">
-            <a href="https://auto-trailer-agent.onrender.com/" target="_blank" class="list-row" id="project-ai-director">
+            <a href="https://auto-trailer-agent.onrender.com/" target="_blank" class="list-row" id="project-frameforge">
                 <div class="list-left">
                     <span class="year">2025</span>
                     <div class="title-group">
                         <div>
-                            <span class="title" style="display:inline;">AI Director</span>
-                            <span id="ai-director-badge"></span> </div>
+                            <span class="title" style="display:inline;">FrameForge</span>
+                            <span id="frameforge-badge"></span> </div>
                         <span class="project-desc">Agentic video generation using LangChain & VideoDB.</span>
                     </div>
                 </div>
                 <span class="meta">Python / LangChain</span>
-                <img src="images/project1.jpg" class="hover-img" alt="AI Director Preview">
+                <img src="images/project-1.png" class="hover-img" alt="FrameForge Preview">
             </a>
 
             <a href="https://github.com/arko-14/nlp-mlops-pipeline" target="_blank" class="list-row">
@@ -580,21 +580,20 @@
         }
 
         // 7. PROJECT ALERT LOGIC (Offline Badge)
+       // 7. PROJECT ALERT LOGIC
         function checkProjectStatus() {
             // --- CONFIGURATION ---
-            const targetDate = new Date('2026-01-01'); // Badge removed after Dec 31, 2025
+            const targetDate = new Date('2026-01-01'); 
             // ---------------------
 
             const now = new Date();
-            const badgeContainer = document.getElementById('ai-director-badge');
+            // UPDATED ID HERE:
+            const badgeContainer = document.getElementById('frameforge-badge'); 
 
             if (now < targetDate) {
-                // IT IS BEFORE JAN 1st: Show "DEMO PAUSED" Badge.
                 if(badgeContainer) {
                     badgeContainer.innerHTML = '<span class="status-badge status-offline">⚠️ DEMO PAUSED</span>';
                 }
-            } else {
-                // IT IS AFTER JAN 1st: Do nothing (Badge remains empty)
             }
         }
 
