@@ -39,13 +39,18 @@ const ResumeTracker = {
             data.org = '';
         }
 
-        // Send to Google Sheets (non-blocking)
-        fetch(this.GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        }).catch(() => {});
+        // Send to Google Sheets
+        try {
+            const response = await fetch(this.GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify(data)
+            });
+            console.log('Tracking data sent:', data);
+        } catch (err) {
+            console.error('Failed to send tracking data:', err);
+        }
 
         // Open the resume
         window.open(downloadLink, '_blank');
