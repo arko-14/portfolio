@@ -279,53 +279,68 @@
   function getBotReply(raw) {
     const q = normalize(raw);
 
-    // 1. PROJECTS
+    // 1. PROJECTS (general)
     if (
       q.includes("show me your projects") ||
       q.includes("your projects") ||
       q.includes("projects") ||
       q.includes("project")
     ) {
-      return "My main projects: Observa (NLP + MLOps), Law Vector, and AI Director. Check the Projects section for links.";
+      return "My main projects: FrameForge (agentic video pipeline), Observa (NLP + MLOps), and Law Vector (RAG legal retrieval). Check the Projects section for links.";
     }
 
-    // 2. OBSERVA
+    // 2. FRAMEFORGE
+    if (q.includes("frameforge") || q.includes("frame forge") || q.includes("video")) {
+      return "FrameForge is a multi-agentic video generation pipeline built with LangChain and VideoDB. It orchestrates AI agents to handle scripting, scene planning, and video assembly autonomously.";
+    }
+
+    // 3. OBSERVA
     if (q.includes("observa")) {
-      return "Observa is my NLP + MLOps project: DistilBERT fine-tuning, FastAPI backend, Gradio UI, MLflow tracking, DVC for data, and Prometheus/Grafana monitoring.";
+      return "Observa is an end-to-end NLP + MLOps pipeline: DistilBERT fine-tuning, FastAPI backend, Gradio UI, MLflow experiment tracking, DVC for data versioning, and Prometheus/Grafana monitoring.";
     }
 
-    // 3. PAPERDIGEST
-    if (q.includes("paperdigest")) {
-      return "Paperdigest summarizes research papers using Gemini. It includes TextRank fallbacks, reading time estimates, and a clean Flask UI.";
+    // 4. LAW VECTOR
+    if (q.includes("law vector") || q.includes("lawvector") || q.includes("legal")) {
+      return "Law Vector is a RAG-based legal document retrieval system using Pinecone as the vector store and BART for summarization, served via a Flask backend.";
     }
 
-    // 4. CURRENT WORK
+    // 5. CURRENT WORK
     if (q.includes("working on") || q.includes("learning") || q.includes("now")) {
       return "Currently deep diving into LLM internals, Agentic Workflows, and reading 'Designing Data-Intensive Applications'.";
     }
 
-    // 5. EXPERIENCE
-    if (q.includes("experience") || q.includes("intern")) {
-      return "I've done AI/ML work at Strydden Technologies (Python/Backend) and robotics work at Just Robotics (Embedded/ML).";
+    // 6. EXPERIENCE
+    if (q.includes("experience") || q.includes("intern") || q.includes("strydden") || q.includes("robotics")) {
+      return "At Strydden Technologies (Jun 2025–Present) I built a RAG triage pipeline for clinical symptom matching and a HIPAA-compliant AI chatbot. At Just Robotics (Jul 2024–May 2025) I engineered an RC controller with websockets/serial communication and a Flask backend for real-time control signals.";
     }
 
-    // 6. TECH STACK
-    if (q.includes("skill") || q.includes("stack") || q.includes("tool")) {
-      return "Stack: Python, FastAPI, Docker, SQL, AWS/GCP, PyTorch, TensorFlow, and VectorDBs.";
+    // 7. TECH STACK
+    if (q.includes("skill") || q.includes("stack") || q.includes("tool") || q.includes("tech")) {
+      return "Stack: Python, FastAPI, Flask, Docker, PyTorch, LangChain, MLflow, DVC, Pinecone, Prometheus/Grafana, SQL, and cloud (AWS/GCP).";
     }
 
-    // 7. CONTACT
+    // 8. CONTACT
     if (q.includes("contact") || q.includes("email") || q.includes("reach")) {
       return "Email me at psandipan20@gmail.com or find me on LinkedIn via the dashboard.";
     }
 
-    // 8. RESUME
+    // 9. RESUME
     if (q.includes("resume") || q.includes("cv")) {
       return "You can download my resume using the link in the footer.";
     }
 
+    // 10. BLOGS / WRITING
+    if (q.includes("blog") || q.includes("article") || q.includes("writing") || q.includes("post") || q.includes("medium")) {
+      return "I write on Medium. Recent posts: 'LLMs Don't Actually Remember You', 'How I Designed a Cryptographically Verifiable Clinical Document System', and 'I Built Observa'. Check the Brain_Dump section for links.";
+    }
+
+    // 11. WHO ARE YOU / ABOUT
+    if (q.includes("who are you") || q.includes("about you") || q.includes("introduce") || q.includes("sandipan") || q.includes("tell me about yourself")) {
+      return "I'm Sandipan Paul, an ML Engineer focused on agentic workflows, MLOps, and LLM systems. I build end-to-end AI pipelines and write about ML on Medium.";
+    }
+
     // FALLBACK
-    return "Command not recognized. Try asking about 'projects', 'Observa', 'skills', or 'contact'.";
+    return "Command not recognized. Try asking about 'FrameForge', 'Observa', 'Law Vector', 'skills', 'experience', 'blogs', or 'contact'.";
   }
 
   // ---- 6. SEND HANDLERS ----

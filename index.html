@@ -4,12 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandipan | System Online</title>
+    <title>Sandipan Paul | ML Engineer</title>
 
-    <meta property="og:title" content="Sandipan | ML Engineer">
+    <!-- SEO -->
+    <meta name="description" content="Sandipan Paul — ML Engineer specializing in agentic workflows, MLOps, and LLM systems. Building projects like FrameForge, a multi-agentic video pipeline.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sandipan14.tech/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sandipan14.tech/">
+    <meta property="og:title" content="Sandipan Paul | ML Engineer">
+    <meta property="og:description" content="ML Engineer specializing in agentic workflows, MLOps, and LLM systems.">
     <meta property="og:image" content="https://sandipan14.tech/images/og-image.png?v=2">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="sandipan14.tech">
+    <meta property="twitter:url" content="https://sandipan14.tech/">
+    <meta name="twitter:title" content="Sandipan Paul | ML Engineer">
+    <meta name="twitter:description" content="ML Engineer specializing in agentic workflows, MLOps, and LLM systems.">
     <meta property="twitter:image" content="https://sandipan14.tech/images/og-image.png?v=2">
-    <meta property="og:description" content="Booting portfolio... Architecture: Python/React. Status: Online.">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sandipan Paul",
+        "url": "https://sandipan14.tech",
+        "jobTitle": "ML Engineer",
+        "sameAs": [
+            "https://github.com/arko-14",
+            "https://linkedin.com/in/sandipan-paul-895915265"
+        ]
+    }
+    </script>
 
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 256 256%22><rect width=%22256%22 height=%22256%22 fill=%22%23111111%22 rx=%2260%22 ry=%2260%22/><text x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2300ff41%22 font-family=%22Courier New, monospace%22 font-weight=%22bold%22 font-size=%22180px%22>S</text></svg>">
@@ -642,7 +672,7 @@
         <div class="header-layout reveal">
             <div class="header-text">
                 <div class="glitch-wrapper">
-                    <h1 id="typing-text"></h1>
+                    <h1 id="typing-text" aria-label="Sandipan Paul | ML Engineer"></h1>
                 </div>
                 <span class="cursor"></span>
                 <p style="margin-top: 15px; max-width: 450px;">
@@ -651,7 +681,7 @@
                     deep-diving into MLOps.
                 </p>
             </div>
-            <img src="images/pfp-2.jpg" alt="Sandipan" class="profile-img">
+            <img src="images/pfp-2.jpg" alt="Sandipan Paul" class="profile-img">
         </div>
 
         <div class="status-box reveal">
@@ -676,10 +706,10 @@
                             <span class="title" style="display:inline;">FrameForge</span>
                             <span id="frameforge-badge"></span>
                         </div>
-                        <span class="project-desc">Agentic video generation using LangChain & VideoDB.</span>
+                        <span class="project-desc">Agentic video generation using LangGraph & VideoDB.</span>
                     </div>
                 </div>
-                <span class="meta">Python / LangChain</span>
+                <span class="meta">Python / LangGraph</span>
                 <img src="images/project-1.png" class="hover-img" alt="FrameForge Preview">
             </a>
 
@@ -733,6 +763,7 @@
             <div class="exp-card">
                 <span class="exp-role">AI & ML Intern</span>
                 <span class="exp-company">Strydden Technologies</span>
+                <span class="year">Jun 2025 – Present</span>
                 <ul class="exp-desc">
                     <li> Implemented RAG triage pipeline for clinical symptom matching, increasing relevant retrieval
                         rate by 20%.</li>
@@ -743,6 +774,7 @@
             <div class="exp-card">
                 <span class="exp-role">Robotics Intern</span>
                 <span class="exp-company">Just Robotics</span>
+                <span class="year">Jul 2024 – May 2025</span>
                 <ul class="exp-desc">
                     <li>Engineered an RC controller using websockets/serial communication; optimized interface latency
                         by 30%.</li>
@@ -833,7 +865,7 @@
         });
 
         // 3. TYPING ANIMATION
-        const text = "Hi, I'm Sandipan.";
+        const text = "Hi, I'm Sandipan Paul.";
         let i = 0;
         function typeWriter() {
             if (i < text.length) {
@@ -847,6 +879,11 @@
         function loadBlogs() {
             const container = document.getElementById('blog-list');
             const blogs = [
+                {
+                    title: "LLMs Don't Actually Remember You — Here's How AI Systems Simulate Memory",
+                    link: "https://medium.com/gitconnected/llms-dont-actually-remember-you-here-s-how-ai-systems-simulate-memory-9f34208584b5",
+                    date: "2025"
+                },
                 {
                     title: "Here's How I Designed a Cryptographically Verifiable Clinical Document System",
                     link: "https://medium.com/@psandipan20/heres-how-i-designed-a-cryptographically-verifiable-clinical-document-system-dab29baa6875",
@@ -944,7 +981,7 @@
     </script>
 
     <div id="chatbot-container"></div>
-    <script src="assistant-widget.js"></script>
+    <script src="assistant-widget.js?v=2"></script>
     
     <!-- Resume Download Tracker -->
     <script src="resume-tracker.js"></script>
