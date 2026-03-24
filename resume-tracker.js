@@ -57,7 +57,7 @@ const ResumeTracker = {
     },
 
     init() {
-        document.querySelectorAll('a[href*="Sandipan_Paul_ML_Engineer_0-1_Years.pdf"], .resume-download').forEach(link => {
+        document.querySelectorAll('a[href*="Sandipan_Paul_ML_Engineer_0-1_Y.pdf"], .resume-download').forEach(link => {
             link.addEventListener('click', (e) => this.trackDownload(e));
         });
     }
