@@ -7,18 +7,29 @@ const ResumeTracker = {
     // ⚠️ UPDATE THIS with your Google Apps Script URL
     GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwSegnHDQMqRUuVXy1A3aqlChyUxwUaA_1uBUjLPr6YavmlV1GzDFv8-qzS9ydwYZf3Nw/exec',
 
-    async trackDownload(event) {
+    trackDownload(event) {
         event.preventDefault();
         const downloadLink = event.currentTarget.href;
 
-        // Collect visitor info
+        // Open the resume immediately — no waiting
+        window.open(downloadLink, '_blank');
+
+        // Track in the background (fire and forget)
+        this._sendTracking().catch(() => {});
+    },
+
+    async _sendTracking() {
         const data = {
             timestamp: new Date().toLocaleString(),
             referrer: document.referrer || 'Direct',
             userAgent: navigator.userAgent,
             language: navigator.language,
             screenSize: `${window.screen.width}x${window.screen.height}`,
-            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            ip: 'Unknown',
+            city: '',
+            country: '',
+            org: ''
         };
 
         // Get IP and location
@@ -32,16 +43,11 @@ const ResumeTracker = {
             data.city = locData.city || '';
             data.country = locData.country_name || '';
             data.org = locData.org || '';
-        } catch (e) {
-            data.ip = 'Unknown';
-            data.city = '';
-            data.country = '';
-            data.org = '';
-        }
+        } catch (e) { /* silent */ }
 
         // Send to Google Sheets
         try {
-            const response = await fetch(this.GOOGLE_SCRIPT_URL, {
+            await fetch(this.GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'text/plain' },
@@ -51,9 +57,6 @@ const ResumeTracker = {
         } catch (err) {
             console.error('Failed to send tracking data:', err);
         }
-
-        // Open the resume
-        window.open(downloadLink, '_blank');
     },
 
     init() {
