@@ -15,7 +15,7 @@ const ResumeTracker = {
         window.open(downloadLink, '_blank');
 
         // Track in the background (fire and forget)
-        this._sendTracking().catch(() => {});
+        this._sendTracking().catch(() => { });
     },
 
     async _sendTracking() {
@@ -60,7 +60,7 @@ const ResumeTracker = {
     },
 
     init() {
-        document.querySelectorAll('a[href*="Sandipan_Paul_ML_Engineer_0-1_Y.pdf"], .resume-download').forEach(link => {
+        document.querySelectorAll('a[href*="Sandipan_Paul_ML_Engineer_0_1_Y.pdf"], .resume-download').forEach(link => {
             link.addEventListener('click', (e) => this.trackDownload(e));
         });
     }
