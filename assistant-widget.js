@@ -1,6 +1,5 @@
-// assistant-widget.js (Resized for Compact Screens)
+// assistant-widget.js
 (function () {
-  // ---- 1. CREATE STYLE TAG (THEME: TERMINAL/HACKER) ----
   const style = document.createElement("style");
   style.textContent = `
     .sp-ai-widget-root {
@@ -8,7 +7,7 @@
       bottom: 24px;
       right: 24px;
       z-index: 9999;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: "Courier New", Courier, monospace;
       color: #e0e0e0;
       pointer-events: none;
     }
@@ -18,9 +17,8 @@
       pointer-events: auto;
     }
 
-    /* THE TERMINAL BUTTON (>_) */
     .sp-ai-badge-button {
-      width: 56px; /* Slightly smaller button */
+      width: 56px;
       height: 56px;
       border-radius: 50%;
       border: 1px solid #00ff41;
@@ -49,22 +47,21 @@
     }
 
     @keyframes sp-ai-pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4); }
-      70%  { box-shadow: 0 0 0 15px rgba(0, 255, 65, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4); }
+      70% { box-shadow: 0 0 0 15px rgba(0, 255, 65, 0); }
       100% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
     }
 
-    /* CARD CONTAINER (RESIZED) */
     .sp-ai-card {
       position: absolute;
       bottom: 75px;
       right: 0;
-      width: 340px;       /* Reduced from 400px */
-      max-height: 480px;  /* Reduced from 600px to fit screens */
+      width: 340px;
+      max-height: 480px;
       background: #050505;
       border-radius: 6px;
       border: 1px solid #222;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -80,7 +77,6 @@
       pointer-events: auto;
     }
 
-    /* HEADER */
     .sp-ai-card-header {
       padding: 0.85rem;
       background: #0a0a0a;
@@ -91,22 +87,34 @@
     }
 
     .sp-ai-card-title-main {
-      display: flex; align-items: center; gap: 8px;
-      font-weight: bold; color: #e0e0e0; font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      color: #e0e0e0;
+      font-size: 0.9rem;
     }
 
     .sp-ai-card-dot {
-      width: 8px; height: 8px; border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
       background: #00ff41;
       box-shadow: 0 0 8px #00ff41;
     }
 
     .sp-ai-close-btn {
-      background: none; border: none; color: #888; cursor: pointer; font-size: 1.1rem;
+      background: none;
+      border: none;
+      color: #888;
+      cursor: pointer;
+      font-size: 1.1rem;
     }
-    .sp-ai-close-btn:hover { color: #fff; }
 
-    /* BODY */
+    .sp-ai-close-btn:hover {
+      color: #fff;
+    }
+
     .sp-ai-card-body {
       padding: 0.85rem;
       background: #050505;
@@ -114,13 +122,18 @@
       color: #aaa;
       border-bottom: 1px solid #1a1a1a;
     }
-    
-    .sp-ai-card-body strong { color: #fff; }
 
-    .sp-ai-hint { margin-top: 6px; font-size: 0.75rem; color: #555; }
+    .sp-ai-card-body strong {
+      color: #fff;
+    }
 
-    .sp-ai-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-    
+    .sp-ai-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
     .sp-ai-tag {
       font-size: 0.7rem;
       padding: 3px 8px;
@@ -131,9 +144,12 @@
       cursor: pointer;
       transition: 0.2s;
     }
-    .sp-ai-tag:hover { background: #00ff41; color: #000; }
 
-    /* CHAT LOG */
+    .sp-ai-tag:hover {
+      background: #00ff41;
+      color: #000;
+    }
+
     .sp-ai-chat-log {
       flex: 1;
       padding: 0.85rem;
@@ -168,10 +184,10 @@
       border-left: 2px solid #00ff41;
     }
 
-    /* INPUT AREA */
     .sp-ai-input-row {
       padding: 0.85rem;
-      display: flex; gap: 8px;
+      display: flex;
+      gap: 8px;
       background: #0a0a0a;
       border-top: 1px solid #222;
     }
@@ -187,8 +203,14 @@
       outline: none;
       font-size: 0.75rem;
     }
-    .sp-ai-input:focus { border-color: #00ff41; }
-    .sp-ai-input::placeholder { color: #444; }
+
+    .sp-ai-input:focus {
+      border-color: #00ff41;
+    }
+
+    .sp-ai-input::placeholder {
+      color: #444;
+    }
 
     .sp-ai-send-btn {
       padding: 0 12px;
@@ -202,15 +224,23 @@
       font-size: 0.7rem;
       transition: 0.2s;
     }
-    .sp-ai-send-btn:hover { background: #00ff41; color: #000; }
+
+    .sp-ai-send-btn:hover {
+      background: #00ff41;
+      color: #000;
+    }
 
     @media (max-width: 480px) {
-      .sp-ai-card { width: 90vw; bottom: 85px; right: 5vw; max-height: 60vh; }
+      .sp-ai-card {
+        width: 90vw;
+        bottom: 85px;
+        right: 5vw;
+        max-height: 60vh;
+      }
     }
   `;
   document.head.appendChild(style);
 
-  // ---- 2. CREATE WIDGET HTML ----
   const root = document.createElement("div");
   root.className = "sp-ai-widget-root";
   root.innerHTML = `
@@ -221,17 +251,17 @@
     <div class="sp-ai-card" aria-label="Sandipan assistant panel">
       <div class="sp-ai-card-header">
         <div class="sp-ai-card-title-main">
-            <span class="sp-ai-card-dot"></span>
-            <span>SYSTEM_ASSISTANT.EXE</span>
+          <span class="sp-ai-card-dot"></span>
+          <span>SYSTEM_ASSISTANT.EXE</span>
         </div>
-        <button class="sp-ai-close-btn" aria-label="Close assistant">✕</button>
+        <button class="sp-ai-close-btn" aria-label="Close assistant">x</button>
       </div>
 
       <div class="sp-ai-card-body">
-        <p><strong>System Ready:</strong> Ask about projects or stack.</p>
+        <p><strong>System Ready:</strong> Ask about projects, blogs, experience, or contact.</p>
         <div class="sp-ai-tag-row">
           <span class="sp-ai-tag" data-question="Show me your projects">"Show projects"</span>
-          <span class="sp-ai-tag" data-question="Tell me about Observa">"Observa"</span>
+          <span class="sp-ai-tag" data-question="Show me your blogs">"Blogs"</span>
           <span class="sp-ai-tag" data-question="How to contact you?">"Contact"</span>
         </div>
       </div>
@@ -254,18 +284,26 @@
   const sendBtn = root.querySelector(".sp-ai-send-btn");
   const suggestionTags = root.querySelectorAll(".sp-ai-tag[data-question]");
 
-  // ---- 3. OPEN/CLOSE HELPERS ----
-  function openCard() { card.classList.add("sp-ai-open"); }
-  function closeCard() { card.classList.remove("sp-ai-open"); }
+  function openCard() {
+    card.classList.add("sp-ai-open");
+  }
+
+  function closeCard() {
+    card.classList.remove("sp-ai-open");
+  }
 
   badgeBtn.addEventListener("click", () => {
-    if (card.classList.contains("sp-ai-open")) closeCard();
-    else { openCard(); input.focus(); }
+    if (card.classList.contains("sp-ai-open")) {
+      closeCard();
+    } else {
+      openCard();
+      input.focus();
+    }
   });
+
   closeBtn.addEventListener("click", closeCard);
 
-  // ---- 4. CHAT RENDER HELPERS ----
-  function addMessage(text, isUser = false) {
+  function addMessage(text, isUser) {
     const msg = document.createElement("div");
     msg.className = "sp-ai-message " + (isUser ? "sp-ai-message-user" : "sp-ai-message-bot");
     msg.textContent = text;
@@ -273,117 +311,107 @@
     chatLog.scrollTop = chatLog.scrollHeight;
   }
 
-  // ---- 5. BOT LOGIC ----
-  function normalize(text) { return text.toLowerCase(); }
+  function normalize(text) {
+    return String(text || "").toLowerCase();
+  }
 
   function getBotReply(raw) {
     const q = normalize(raw);
 
-    // 1. PROJECTS (general)
     if (
       q.includes("show me your projects") ||
       q.includes("your projects") ||
       q.includes("projects") ||
       q.includes("project")
     ) {
-      return "My main projects: FrameForge (agentic video pipeline), Observa (NLP + MLOps), and Law Vector (RAG legal retrieval). Check the Projects section for links.";
+      return "Current projects here: EvalFlow, CodeCortex AI, FrameForge, and Observa.";
     }
 
-    // 2. FRAMEFORGE
+    if (q.includes("evalflow") || q.includes("evaluation")) {
+      return "EvalFlow is an evaluation workflow system for prompt, model, and agent runs with experiment comparison, trace visibility, and feedback-driven iteration. It is currently marked coming soon.";
+    }
+
+    if (q.includes("codecortex") || q.includes("codecortex ai") || q.includes("code cortex") || q.includes("code review")) {
+      return "CodeCortex AI is an autonomous AI code review agent for pull requests, focused on bug detection, regression checks, and security-oriented reasoning.";
+    }
+
     if (q.includes("frameforge") || q.includes("frame forge") || q.includes("video")) {
-      return "FrameForge is a multi-agentic video generation pipeline built with LangChain and VideoDB. It orchestrates AI agents to handle scripting, scene planning, and video assembly autonomously.";
+      return "FrameForge is an agentic video generation system for prompt-driven scene planning, retrieval, orchestration, and automated production pipelines.";
     }
 
-    // 3. OBSERVA
     if (q.includes("observa")) {
-      return "Observa is an end-to-end NLP + MLOps pipeline: DistilBERT fine-tuning, FastAPI backend, Gradio UI, MLflow experiment tracking, DVC for data versioning, and Prometheus/Grafana monitoring.";
+      return "Observa is an end-to-end NLP and MLOps pipeline with experiment tracking, monitoring, artifact versioning, and production telemetry for model visibility.";
     }
 
-    // 4. LAW VECTOR
-    if (q.includes("law vector") || q.includes("lawvector") || q.includes("legal")) {
-      return "Law Vector is a RAG-based legal document retrieval system using Pinecone as the vector store and BART for summarization, served via a Flask backend.";
+    if (q.includes("blog") || q.includes("blogs") || q.includes("article") || q.includes("writing") || q.includes("post") || q.includes("medium")) {
+      return "Blogs listed here: 'DAG vs LLM: Rethinking Orchestration in AI Systems', 'LLMs Don't Actually Remember You', 'How I Designed a Cryptographically Verifiable Clinical Document System', and 'I Just Wanted to See What My Model Was Doing, So I Built Observa'.";
     }
 
-    // 5. CURRENT WORK
-    if (q.includes("working on") || q.includes("learning") || q.includes("now")) {
-      return "Currently deep diving into LLM internals, Agentic Workflows, and reading 'Designing Data-Intensive Applications'.";
-    }
-
-    // 6. EXPERIENCE
     if (q.includes("experience") || q.includes("intern") || q.includes("strydden") || q.includes("robotics")) {
-      return "At Strydden Technologies (Jun 2025–Present) I built a RAG triage pipeline for clinical symptom matching and a HIPAA-compliant AI chatbot. At Just Robotics (Jul 2024–May 2025) I engineered an RC controller with websockets/serial communication and a Flask backend for real-time control signals.";
+      return "Experience listed here: AI & ML Intern at Strydden Technologies (June 2025 - Present) and Robotics Intern at Just Robotics (July 2024 - July 2025).";
     }
 
-    // 7. TECH STACK
-    if (q.includes("skill") || q.includes("stack") || q.includes("tool") || q.includes("tech")) {
-      return "Stack: Python, FastAPI, Flask, Docker, PyTorch, LangChain, MLflow, DVC, Pinecone, Prometheus/Grafana, SQL, and cloud (AWS/GCP).";
+    if (q.includes("paper") || q.includes("papers") || q.includes("research")) {
+      return "Papers listed here: 'Attention Is All You Need', 'LeNet vs AlexNet: CNN Architecture Comparison', and 'AlexNet: ImageNet Classification with Deep Convolutional Neural Networks'.";
     }
 
-    // 8. CONTACT
-    if (q.includes("contact") || q.includes("email") || q.includes("reach")) {
-      return "Email me at psandipan20@gmail.com or find me on LinkedIn via the dashboard.";
+    if (q.includes("contact") || q.includes("email") || q.includes("reach") || q.includes("linkedin") || q.includes("github") || q.includes("instagram")) {
+      return "You can reach me through the CONTACT section: email, GitHub, LinkedIn, or Instagram.";
     }
 
-    // 9. RESUME
     if (q.includes("resume") || q.includes("cv")) {
-      return "You can download my resume using the link in the footer.";
+      return "You can open the resume from the navigation bar using the ./RESUME link.";
     }
 
-    // 10. BLOGS / WRITING
-    if (q.includes("blog") || q.includes("article") || q.includes("writing") || q.includes("post") || q.includes("medium")) {
-      return "I write on Medium. Recent posts: 'LLMs Don't Actually Remember You', 'How I Designed a Cryptographically Verifiable Clinical Document System', and 'I Built Observa'. Check the Brain_Dump section for links.";
-    }
-
-    // 11. WHO ARE YOU / ABOUT
     if (q.includes("who are you") || q.includes("about you") || q.includes("introduce") || q.includes("sandipan") || q.includes("tell me about yourself")) {
-      return "I'm Sandipan Paul, an ML Engineer focused on agentic workflows, MLOps, and LLM systems. I build end-to-end AI pipelines and write about ML on Medium.";
+      return "I'm Sandipan Paul, an ML Engineer focused on agentic workflows, MLOps, and LLM systems.";
     }
 
-    // FALLBACK
-    return "Command not recognized. Try asking about 'FrameForge', 'Observa', 'Law Vector', 'skills', 'experience', 'blogs', or 'contact'.";
+    return "I couldn't find that on this portfolio right now. If you want more details, contact me up.";
   }
 
-  // ---- 6. SEND HANDLERS ----
   function handleSend() {
     const text = (input.value || "").trim();
     if (!text) return;
+
     addMessage(text, true);
     input.value = "";
-    
+
     setTimeout(() => {
-        const reply = getBotReply(text);
-        addMessage(reply, false);
+      addMessage(getBotReply(text), false);
     }, 400);
   }
 
   function sendSuggestion(question) {
-    addMessage(question, true); // User sees the full question
+    addMessage(question, true);
     setTimeout(() => {
-        const reply = getBotReply(question);
-        addMessage(reply, false);
+      addMessage(getBotReply(question), false);
     }, 400);
   }
 
   sendBtn.addEventListener("click", handleSend);
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
       handleSend();
     }
   });
 
   suggestionTags.forEach((tag) => {
     tag.addEventListener("click", () => {
-      const q = tag.getAttribute("data-question");
-      sendSuggestion(q);
+      sendSuggestion(tag.getAttribute("data-question"));
     });
   });
 
-  // ---- 7. AUTO-OPEN ----
   try {
-    const FLAG_KEY = "spAiHasGreeted";
-    if (!localStorage.getItem(FLAG_KEY)) {
-      setTimeout(() => { openCard(); localStorage.setItem(FLAG_KEY, "1"); }, 1500);
+    const flagKey = "spAiHasGreeted";
+    if (!localStorage.getItem(flagKey)) {
+      setTimeout(() => {
+        openCard();
+        localStorage.setItem(flagKey, "1");
+      }, 1500);
     }
-  } catch (e) {}
+  } catch (error) {
+    // Ignore localStorage errors.
+  }
 })();

@@ -11,7 +11,7 @@ const SiteTracker = {
     trackLink(event) {
         const link = event.currentTarget;
         const linkType = link.getAttribute('data-track') || link.innerText || 'Unknown';
-        const href = link.href;
+        const href = link.href || link.getAttribute('data-track-url') || window.location.href;
 
         // Track in the background (fire and forget)
         this._sendTracking(linkType, href).catch(() => { });
@@ -61,9 +61,9 @@ const SiteTracker = {
     },
 
     init() {
-        // Track all links with data-track attribute
-        document.querySelectorAll('a[data-track]').forEach(link => {
-            link.addEventListener('click', (e) => this.trackLink(e));
+        // Track all clickable elements with data-track attribute
+        document.querySelectorAll('[data-track]').forEach(element => {
+            element.addEventListener('click', (e) => this.trackLink(e));
         });
 
         // Legacy support for resume download if data-track is missing
