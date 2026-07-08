@@ -328,7 +328,7 @@
     }
 
     if (q.includes("evalflow") || q.includes("evaluation")) {
-      return "EvalFlow is an evaluation workflow system for prompt, model, and agent runs with experiment comparison, trace visibility, and feedback-driven iteration. It is currently marked coming soon.";
+      return "EvalFlow is a backend-first eval platform for LLM apps with prompt versioning, benchmark runs, LLM-as-judge scoring, and prompt promotion.";
     }
 
     if (q.includes("codecortex") || q.includes("codecortex ai") || q.includes("code cortex") || q.includes("code review")) {
@@ -347,8 +347,8 @@
       return "Blogs listed here: 'DAG vs LLM: Rethinking Orchestration in AI Systems', 'LLMs Don't Actually Remember You', 'How I Designed a Cryptographically Verifiable Clinical Document System', and 'I Just Wanted to See What My Model Was Doing, So I Built Observa'.";
     }
 
-    if (q.includes("experience") || q.includes("intern") || q.includes("strydden") || q.includes("robotics")) {
-      return "Experience listed here: AI & ML Intern at Strydden Technologies (June 2025 - Present) and Robotics Intern at Just Robotics (July 2024 - July 2025).";
+    if (q.includes("experience") || q.includes("intern") || q.includes("crid") || q.includes("strydden") || q.includes("robotics")) {
+      return "Experience listed here: AI/ML Intern at CRID India (May 2026 - Present), AI & ML Intern at Strydden Technologies (June 2025 - May 2026), and Robotics Intern at Just Robotics (July 2024 - July 2025).";
     }
 
     if (q.includes("paper") || q.includes("papers") || q.includes("research")) {
