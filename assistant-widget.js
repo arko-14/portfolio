@@ -318,13 +318,10 @@
   function getBotReply(raw) {
     const q = normalize(raw);
 
-    if (
-      q.includes("show me your projects") ||
-      q.includes("your projects") ||
-      q.includes("projects") ||
-      q.includes("project")
-    ) {
-      return "Current projects here: EvalFlow, CodeCortex AI, FrameForge, and Observa.";
+    // Specific topics are checked before the generic "project" rule so that
+    // questions like "CRID projects" or "EvalFlow project" get the detailed answer.
+    if (q.includes("crid") || q.includes("minutes of meeting") || q.includes("meeting minutes") || q.includes("auditor") || q.includes("legal advisor")) {
+      return "At CRID India (AI/ML Engineer, May 2026 - Present) I built an unattended Azure pipeline that turns Hindi + English meeting recordings into Minutes of Meeting in SharePoint within ~5 minutes, a contact-research tool that finds an organisation's verified board and leadership in about a minute, AI Auditor and Legal Advisor platforms for BEE (Ministry of Power), and CRID India's website with SEO, analytics, and a no-code CMS (1,300+ page views).";
     }
 
     if (q.includes("evalflow") || q.includes("evaluation")) {
@@ -343,12 +340,16 @@
       return "Observa is an end-to-end NLP and MLOps pipeline with experiment tracking, monitoring, artifact versioning, and production telemetry for model visibility.";
     }
 
+    if (q.includes("project")) {
+      return "Current projects here: EvalFlow, CodeCortex AI, FrameForge, and Observa.";
+    }
+
     if (q.includes("blog") || q.includes("blogs") || q.includes("article") || q.includes("writing") || q.includes("post") || q.includes("medium")) {
       return "Blogs listed here: 'DAG vs LLM: Rethinking Orchestration in AI Systems', 'LLMs Don't Actually Remember You', 'How I Designed a Cryptographically Verifiable Clinical Document System', and 'I Just Wanted to See What My Model Was Doing, So I Built Observa'.";
     }
 
-    if (q.includes("experience") || q.includes("intern") || q.includes("crid") || q.includes("strydden") || q.includes("robotics")) {
-      return "Experience listed here: AI/ML Intern at CRID India (May 2026 - Present), AI & ML Intern at Strydden Technologies (June 2025 - May 2026), and Robotics Intern at Just Robotics (July 2024 - July 2025).";
+    if (q.includes("experience") || q.includes("intern") || q.includes("strydden") || q.includes("robotics")) {
+      return "Experience listed here: AI/ML Engineer at CRID India (May 2026 - Present), AI & ML Intern at Strydden Technologies (June 2025 - May 2026), and Robotics Intern at Just Robotics (July 2024 - July 2025).";
     }
 
     if (q.includes("paper") || q.includes("papers") || q.includes("research")) {
