@@ -369,7 +369,7 @@
     }
 
     if (q.includes("who are you") || q.includes("about you") || q.includes("introduce") || q.includes("sandipan") || q.includes("tell me about yourself")) {
-      return "I'm Sandipan Paul, a Software Engineer focused on backend engineering, cloud infrastructure, and applied AI.";
+      return "I'm Sandipan Paul, a Full Stack Engineer focused on cloud & platform infrastructure, backend systems, and scalable web applications.";
     }
 
     return "I couldn't find that on this portfolio right now. If you want more details, contact me up.";
