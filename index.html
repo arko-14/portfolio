@@ -4,36 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandipan Paul | ML Engineer</title>
+    <title>Sandipan Paul | Software Engineer – Backend, Cloud &amp; Applied AI</title>
 
     <meta name="description"
-        content="Sandipan Paul - ML Engineer specializing in agentic workflows, MLOps, and LLM systems. Building projects like FrameForge, Observa, and CodeCortex AI.">
+        content="Sandipan Paul is a Software Engineer working across backend systems, cloud infrastructure and applied AI. Explore projects in LLM engineering, MLOps, automation and scalable software.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://sandipan14.tech/">
+    <link rel="canonical" href="https://sandipan.vercel.app/">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sandipan14.tech/">
-    <meta property="og:title" content="Sandipan Paul | ML Engineer">
-    <meta property="og:description" content="ML Engineer specializing in agentic workflows, MLOps, and LLM systems.">
-    <meta property="og:image" content="https://sandipan14.tech/images/og-image.png?v=2">
+    <meta property="og:url" content="https://sandipan.vercel.app/">
+    <meta property="og:title" content="Sandipan Paul | Software Engineer – Backend, Cloud &amp; Applied AI">
+    <meta property="og:description"
+        content="Sandipan Paul is a Software Engineer working across backend systems, cloud infrastructure and applied AI. Explore projects in LLM engineering, MLOps, automation and scalable software.">
+    <meta property="og:image" content="https://sandipan.vercel.app/images/og-image.png">
+    <meta property="og:image:alt" content="Sandipan Paul – Software Engineer Portfolio terminal interface">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="sandipan14.tech">
-    <meta property="twitter:url" content="https://sandipan14.tech/">
-    <meta name="twitter:title" content="Sandipan Paul | ML Engineer">
-    <meta name="twitter:description" content="ML Engineer specializing in agentic workflows, MLOps, and LLM systems.">
-    <meta property="twitter:image" content="https://sandipan14.tech/images/og-image.png?v=2">
+    <meta property="twitter:domain" content="sandipan.vercel.app">
+    <meta property="twitter:url" content="https://sandipan.vercel.app/">
+    <meta name="twitter:title" content="Sandipan Paul | Software Engineer – Backend, Cloud &amp; Applied AI">
+    <meta name="twitter:description"
+        content="Sandipan Paul is a Software Engineer working across backend systems, cloud infrastructure and applied AI. Explore projects in LLM engineering, MLOps, automation and scalable software.">
+    <meta property="twitter:image" content="https://sandipan.vercel.app/images/og-image.png">
+    <meta name="twitter:image:alt" content="Sandipan Paul – Software Engineer Portfolio terminal interface">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Sandipan Paul",
-        "url": "https://sandipan14.tech",
-        "jobTitle": "ML Engineer",
-        "sameAs": [
-            "https://github.com/arko-14",
-            "https://linkedin.com/in/sandipan-paul-895915265"
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://sandipan.vercel.app/#person",
+                "name": "Sandipan Paul",
+                "url": "https://sandipan.vercel.app/",
+                "jobTitle": "Software Engineer (Cloud & Platform)",
+                "sameAs": [
+                    "https://github.com/arko-14",
+                    "https://www.linkedin.com/in/sandipan-paul-895915265/"
+                ],
+                "knowsAbout": [
+                    "Cloud & Platform Engineering",
+                    "Google Cloud Platform (GCP)",
+                    "Cloudflare",
+                    "Backend Engineering",
+                    "Cloud Computing",
+                    "Applied AI",
+                    "Generative AI",
+                    "LLM Engineering",
+                    "MLOps",
+                    "Software Architecture"
+                ],
+                "description": "Software Engineer working across backend systems, cloud infrastructure and applied AI."
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://sandipan.vercel.app/#website",
+                "url": "https://sandipan.vercel.app/",
+                "name": "Sandipan Paul | Software Engineer",
+                "description": "Portfolio of Sandipan Paul, Software Engineer focused on backend engineering, cloud infrastructure and applied AI.",
+                "publisher": {
+                    "@id": "https://sandipan.vercel.app/#person"
+                },
+                "inLanguage": "en"
+            }
         ]
     }
     </script>
@@ -304,12 +337,15 @@
 
         .screen {
             position: relative;
-            min-height: 100vh;
-            padding: 52px 0 26px;
+            padding: 60px 0 32px;
         }
 
         .hero {
-            padding-top: 54px;
+            padding-top: 52px;
+            min-height: min(85vh, 740px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .hero-title {
@@ -321,12 +357,21 @@
             text-shadow: 0 0 18px rgba(125, 251, 116, 0.13);
         }
 
-        .hero-subtitle {
+        .hero-headline {
             max-width: 910px;
-            margin: 0 0 18px;
-            font-size: clamp(1.35rem, 2.7vw, 2.1rem);
-            line-height: 1.18;
+            margin: 0 0 12px;
+            font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+            line-height: 1.25;
             color: var(--text-strong);
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            max-width: 820px;
+            margin: 0 0 18px;
+            font-size: clamp(1.02rem, 1.45vw, 1.15rem);
+            line-height: 1.45;
+            color: var(--muted);
         }
 
         .cursor-block {
@@ -420,8 +465,9 @@
         }
 
         .project-card {
-            min-height: 230px;
-            padding: 14px 14px 16px;
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
         }
 
         .project-card h3 {
@@ -456,13 +502,15 @@
         }
 
         .project-desc {
-            margin: 0 0 14px;
+            margin: 0 0 16px;
             color: var(--text);
-            font-size: clamp(1.03rem, 1.4vw, 1.12rem);
-            line-height: 1.28;
+            font-size: clamp(1.02rem, 1.4vw, 1.12rem);
+            line-height: 1.35;
+            flex: 1 1 auto;
         }
 
         .project-actions {
+            margin-top: auto;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -528,7 +576,16 @@
             color: var(--text);
             font-size: clamp(1.12rem, 1.8vw, 1.3rem);
             line-height: 1.2;
-            margin-bottom: 8px;
+            margin: 0 0 8px;
+            font-weight: 400;
+        }
+
+        .paper-item-title a {
+            color: inherit;
+        }
+
+        .paper-item-title a:hover {
+            color: var(--accent);
         }
 
         .paper-item-meta {
@@ -568,6 +625,8 @@
             color: var(--text);
             font-size: clamp(1.08rem, 1.8vw, 1.24rem);
             line-height: 1.2;
+            margin: 0;
+            font-weight: 400;
         }
 
         .experience-company {
@@ -642,20 +701,10 @@
         }
 
         .site-footer {
-            margin-top: 16px;
-            padding-bottom: 10px;
+            margin-top: 36px;
+            padding-bottom: 16px;
             font-size: 0.95rem;
             color: var(--text);
-        }
-
-        #contact {
-            min-height: auto;
-            padding-bottom: 8px;
-        }
-
-        #blogs {
-            min-height: auto;
-            padding-bottom: 12px;
         }
 
         .brain-grid {
@@ -672,6 +721,12 @@
             padding-bottom: 8px;
             border-bottom: 1px solid rgba(125, 251, 116, 0.16);
             font-size: 1rem;
+        }
+
+        .brain-title {
+            margin: 0;
+            font-size: inherit;
+            font-weight: 400;
         }
 
         .brain-item a {
@@ -776,12 +831,12 @@
             }
 
             .screen {
-                min-height: auto;
-                padding-top: 42px;
+                padding: 42px 0 20px;
             }
 
             .hero {
-                padding-top: 30px;
+                padding-top: 28px;
+                min-height: auto;
             }
 
             .hero-title {
@@ -825,7 +880,7 @@
         <a class="nav-link" href="#contact">./CONTACT</a>
         <span class="nav-spacer" aria-hidden="true"></span>
         <a class="nav-link" href="Sandipan_Paul_ML_Engineer_0_1_Y.pdf" target="_blank" rel="noopener"
-            data-track="Resume">./RESUME</a>
+            data-track="Resume" aria-label="Open Sandipan Paul's resume (PDF)">./RESUME</a>
         <button class="theme-toggle" id="theme-toggle" type="button">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Toggle theme</span>
@@ -838,15 +893,20 @@
 
     <main class="shell">
         <section class="screen hero" id="home" data-nav="~/HOME">
-            <h1 class="hero-title"><span id="typing-text"></span><span class="cursor-block" aria-hidden="true"></span></h1>
+            <h1 class="hero-title"><span id="typing-text">Hi, I'm Sandipan</span><span class="cursor-block" aria-hidden="true"></span><span class="visually-hidden"> Paul | Software Engineer – Cloud, Platform &amp; Applied AI</span></h1>
+            <p class="hero-headline">Building reliable software and intelligent systems.</p>
             <p class="hero-subtitle">
-                Architecting intelligent systems from chaos. Specialized in
-                Machine Learning and deep-diving into MLOps.
+                Architecting intelligent systems from chaos. Specialized in Cloud &amp; Platform Engineering, Machine Learning, and deep-diving into MLOps.
             </p>
 
             <div class="terminal-panel process-panel">
                 <div class="panel-title">ACTIVE PROCESSES</div>
-                <pre class="process-lines" id="process-lines"></pre>
+                <pre class="process-lines" id="process-lines">&gt; Backend-Services.init()
+&gt; Agent-Orchestrator.boot()
+&gt; Kubernetes-Cluster.scale(nodes=5)
+&gt; Observability-Daemon.trace(latency=42ms)
+&gt; Cloud-Infrastructure.sync(status=healthy)
+&gt; System Status: RUNNING</pre>
                 <div class="inline-scroll"></div>
             </div>
         </section>
@@ -858,17 +918,18 @@
                     <h3>EvalFlow</h3>
                     <div class="tag-row">
                         <span class="tag">[Evaluation]</span>
-                        <span class="tag">[LLMs]</span>
+                        <span class="tag">[LLM Systems]</span>
+                        <span class="tag">[MCP Server]</span>
+                        <span class="tag">[SDK]</span>
                         <span class="tag">[Tracing]</span>
-                        <span class="tag">[Agents]</span>
                     </div>
                     <p class="project-desc">
-                        Backend-first eval platform for LLM apps with prompt versioning,
-                        benchmark runs, LLM-as-judge scoring, and prompt promotion.
+                        Open-source LLM evaluation toolkit and backend-first eval platform with an MCP server,
+                        SDK, prompt versioning, benchmark runs, and LLM-as-judge scoring.
                     </p>
                     <div class="project-actions">
                         <a href="https://eval-flow-taupe.vercel.app/" target="_blank" rel="noopener"
-                            data-track="Project_EvalFlow_Demo">&gt; live_demo.exe</a>
+                            data-track="Project_EvalFlow_Demo" aria-label="Open EvalFlow live demo">&gt; live_demo.exe</a>
                     </div>
                 </article>
 
@@ -886,7 +947,7 @@
                     </p>
                     <div class="project-actions">
                         <a href="https://github.com/arko-14/CodeCortex-AI" target="_blank" rel="noopener"
-                            data-track="GitHub_CodeCortex">&gt; view_source.sh</a>
+                            data-track="GitHub_CodeCortex" aria-label="View CodeCortex AI source code on GitHub">&gt; view_source.sh</a>
                     </div>
                 </article>
 
@@ -895,34 +956,36 @@
                     <div class="tag-row">
                         <span class="tag">[LangGraph]</span>
                         <span class="tag">[VideoDB]</span>
+                        <span class="tag">[Groq]</span>
                         <span class="tag">[Agents]</span>
                         <span class="tag">[Python]</span>
                     </div>
                     <p class="project-desc">
-                        Agentic video generation system for prompt-driven scene planning, retrieval,
-                        orchestration, and automated production pipelines.
+                        Autonomous AI video production workflow using LangGraph, VideoDB, and Groq for
+                        prompt-driven scene planning, retrieval, orchestration, and automated production pipelines.
                     </p>
                     <div class="project-actions">
                         <a href="https://frameforge.live/" target="_blank" rel="noopener"
-                            data-track="Project_FrameForge_Demo">&gt; live_demo.exe</a>
+                            data-track="Project_FrameForge_Demo" aria-label="Open FrameForge live demo">&gt; live_demo.exe</a>
                     </div>
                 </article>
 
                 <article class="terminal-panel project-card">
                     <h3>Observa</h3>
                     <div class="tag-row">
+                        <span class="tag">[MLOps]</span>
                         <span class="tag">[DVC]</span>
                         <span class="tag">[MLflow]</span>
                         <span class="tag">[Grafana]</span>
                         <span class="tag">[NLP]</span>
                     </div>
                     <p class="project-desc">
-                        End-to-end NLP and MLOps pipeline with experiment tracking, monitoring,
-                        artifact versioning, and production telemetry for model visibility.
+                        End-to-end NLP and MLOps monitoring and observability pipeline with experiment tracking,
+                        metrics dashboards, artifact versioning, and telemetry for model visibility.
                     </p>
                     <div class="project-actions">
                         <a href="https://github.com/arko-14/nlp-mlops-pipeline" target="_blank" rel="noopener"
-                            data-track="Project_Observa_Source">&gt;
+                            data-track="Project_Observa_Source" aria-label="View Observa source code on GitHub">&gt;
                             view_source.sh</a>
                     </div>
                 </article>
@@ -934,14 +997,14 @@
             <h2 class="screen-title">~/PAPERS</h2>
             <div class="papers-list">
                 <article class="terminal-panel paper-item">
-                    <a class="paper-item-title" href="https://github.com/arko-14/attention" target="_blank" rel="noopener"
-                        data-track="Paper_Transformer_Implementation">Attention Is All You Need</a>
+                    <h3 class="paper-item-title"><a href="https://github.com/arko-14/attention" target="_blank" rel="noopener"
+                        data-track="Paper_Transformer_Implementation" aria-label="Attention Is All You Need paper implementation on GitHub">Attention Is All You Need</a></h3>
                     <div class="paper-item-meta">Vaswani et al. | NeurIPS 2017 | Transformer implementation study</div>
                     <p class="paper-item-desc">Rebuilt the core transformer architecture to study attention mechanics, encoder-decoder flow, and training behavior from scratch.</p>
                 </article>
                 <article class="terminal-panel paper-item">
-                    <a class="paper-item-title" href="https://github.com/arko-14/CNN-architecture-from-scratch" target="_blank" rel="noopener"
-                        data-track="Paper_CNN_Comparison">LeNet vs AlexNet: CNN Architecture Comparison</a>
+                    <h3 class="paper-item-title"><a href="https://github.com/arko-14/CNN-architecture-from-scratch" target="_blank" rel="noopener"
+                        data-track="Paper_CNN_Comparison" aria-label="LeNet vs AlexNet comparative study on GitHub">LeNet vs AlexNet: CNN Architecture Comparison</a></h3>
                     <div class="paper-item-meta">LeCun et al. + Krizhevsky et al. | Comparative CNN study</div>
                     <p class="paper-item-desc">Implemented the original convolutional pipeline to understand early vision architectures, parameter sharing, and classifier construction.</p>
                 </article>
@@ -952,9 +1015,16 @@
             <h2 class="screen-title">~/EXP</h2>
             <div class="experience-layout">
                 <article class="terminal-panel experience-card">
+                    <div class="experience-top" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+                        <h3 class="experience-role">Software Engineer (Cloud &amp; Platform) <span class="experience-company">| Kudrat Foundation</span></h3>
+                            <div class="experience-dates">Sep 2026 - Present</div>
+                    </div>
+                </article>
+
+                <article class="terminal-panel experience-card">
                     <div class="experience-top">
-                        <div class="experience-role">AI/ML Engineer <span class="experience-company">| CRID India</span></div>
-                            <div class="experience-dates">May 2026 - Present</div>
+                        <h3 class="experience-role">AI/ML Engineer <span class="experience-company">| CRID India</span></h3>
+                            <div class="experience-dates">May 2026 - Sep 2026</div>
                     </div>
                     <ul class="experience-points">
                         <li>Built an unattended Azure pipeline combining bilingual (Hindi + English) ASR and LLM summarisation, turning Fireflies recordings into structured Minutes of Meeting in SharePoint within ~5 minutes of a meeting ending.</li>
@@ -968,7 +1038,7 @@
 
                 <article class="terminal-panel experience-card">
                     <div class="experience-top">
-                        <div class="experience-role">AI &amp; ML Intern <span class="experience-company">| Strydden Technologies</span></div>
+                        <h3 class="experience-role">AI &amp; ML Intern <span class="experience-company">| Strydden Technologies</span></h3>
                             <div class="experience-dates">June 2025 - May 2026</div>
                     </div>
                     <ul class="experience-points">
@@ -982,7 +1052,7 @@
 
                 <article class="terminal-panel experience-card">
                     <div class="experience-top">
-                        <div class="experience-role">Robotics Intern <span class="experience-company">| Just Robotics</span></div>
+                        <h3 class="experience-role">Robotics Intern <span class="experience-company">| Just Robotics</span></h3>
                             <div class="experience-dates">July 2024 - July 2025</div>
                     </div>
                     <ul class="experience-points">
@@ -998,23 +1068,28 @@
             <h2 class="screen-title">~/BLOGS</h2>
             <div class="brain-grid">
                 <div class="brain-item">
-                    <a href="https://medium.com/@psandipan20/dag-vs-llm-rethinking-orchestration-in-ai-systems-3e7cc47b0490"
-                        target="_blank" rel="noopener" data-track="Blog_DAG_vs_LLM">DAG vs LLM: Rethinking Orchestration in AI Systems</a>
+                    <h3 class="brain-title"><a href="https://medium.com/@psandipan20/why-your-llm-semantic-cache-is-a-ticking-time-bomb-and-how-i-fixed-it-f9153f7805ce"
+                        target="_blank" rel="noopener" data-track="Blog_Semantic_Cache" aria-label="Read article on Medium: Why Your LLM Semantic Cache Is a Ticking Time Bomb — And How I Fixed It">Why Your LLM Semantic Cache Is a Ticking Time Bomb — And How I Fixed It</a></h3>
                     <span class="brain-status">READ</span>
                 </div>
                 <div class="brain-item">
-                    <a href="https://medium.com/gitconnected/llms-dont-actually-remember-you-here-s-how-ai-systems-simulate-memory-9f34208584b5"
-                        target="_blank" rel="noopener" data-track="Blog_LLM_Memory">LLMs Don't Actually Remember You - Here's How AI Systems Simulate Memory</a>
+                    <h3 class="brain-title"><a href="https://medium.com/@psandipan20/dag-vs-llm-rethinking-orchestration-in-ai-systems-3e7cc47b0490"
+                        target="_blank" rel="noopener" data-track="Blog_DAG_vs_LLM" aria-label="Read article on Medium: DAG vs LLM: Rethinking Orchestration in AI Systems">DAG vs LLM: Rethinking Orchestration in AI Systems</a></h3>
                     <span class="brain-status">READ</span>
                 </div>
                 <div class="brain-item">
-                    <a href="https://medium.com/@psandipan20/heres-how-i-designed-a-cryptographically-verifiable-clinical-document-system-dab29baa6875"
-                        target="_blank" rel="noopener" data-track="Blog_Clinical_Document_System">How I Designed a Cryptographically Verifiable Clinical Document System</a>
+                    <h3 class="brain-title"><a href="https://medium.com/gitconnected/llms-dont-actually-remember-you-here-s-how-ai-systems-simulate-memory-9f34208584b5"
+                        target="_blank" rel="noopener" data-track="Blog_LLM_Memory" aria-label="Read article on Medium: LLMs Don't Actually Remember You">LLMs Don't Actually Remember You - Here's How AI Systems Simulate Memory</a></h3>
                     <span class="brain-status">READ</span>
                 </div>
                 <div class="brain-item">
-                    <a href="https://medium.com/@psandipan20/i-just-wanted-to-see-what-my-model-was-doing-so-i-built-observa-6c65e68b3daa"
-                        target="_blank" rel="noopener" data-track="Blog_Observa">I Just Wanted to See What My Model Was Doing, So I Built Observa</a>
+                    <h3 class="brain-title"><a href="https://medium.com/@psandipan20/heres-how-i-designed-a-cryptographically-verifiable-clinical-document-system-dab29baa6875"
+                        target="_blank" rel="noopener" data-track="Blog_Clinical_Document_System" aria-label="Read article on Medium: How I Designed a Cryptographically Verifiable Clinical Document System">How I Designed a Cryptographically Verifiable Clinical Document System</a></h3>
+                    <span class="brain-status">READ</span>
+                </div>
+                <div class="brain-item">
+                    <h3 class="brain-title"><a href="https://medium.com/@psandipan20/i-just-wanted-to-see-what-my-model-was-doing-so-i-built-observa-6c65e68b3daa"
+                        target="_blank" rel="noopener" data-track="Blog_Observa" aria-label="Read article on Medium: I Just Wanted to See What My Model Was Doing, So I Built Observa">I Just Wanted to See What My Model Was Doing, So I Built Observa</a></h3>
                     <span class="brain-status">READ</span>
                 </div>
             </div>
@@ -1024,12 +1099,12 @@
             <h2 class="screen-title">~/CONTACT</h2>
             <div class="contact-layout">
                 <article class="terminal-panel contact-panel">
-                    <p class="contact-copy">Reach out here if you want to collaborate, talk ML systems, or build something useful together.</p>
+                    <p class="contact-copy">Reach out here if you want to collaborate, talk backend systems, cloud infrastructure, or build something useful together.</p>
                     <div class="contact-links">
-                        <a href="mailto:psandipan20@gmail.com" data-track="Email">email</a>
-                        <a href="https://github.com/arko-14" target="_blank" rel="noopener" data-track="GitHub_Profile">github</a>
-                        <a href="https://www.linkedin.com/in/sandipan-paul-895915265/" target="_blank" rel="noopener" data-track="LinkedIn">linkedin</a>
-                        <a href="https://www.instagram.com/sandipan___2/" target="_blank" rel="noopener" data-track="Instagram">instagram</a>
+                        <a href="mailto:psandipan20@gmail.com" data-track="Email" aria-label="Send email to Sandipan Paul">email</a>
+                        <a href="https://github.com/arko-14" target="_blank" rel="noopener" data-track="GitHub_Profile" aria-label="Sandipan Paul GitHub profile">github</a>
+                        <a href="https://www.linkedin.com/in/sandipan-paul-895915265/" target="_blank" rel="noopener" data-track="LinkedIn" aria-label="Sandipan Paul LinkedIn profile">linkedin</a>
+                        <a href="https://www.instagram.com/sandipan___2/" target="_blank" rel="noopener" data-track="Instagram" aria-label="Sandipan Paul Instagram profile">instagram</a>
                     </div>
                 </article>
             </div>
@@ -1084,7 +1159,9 @@
         let typeIndex = 0;
         const typingTarget = document.getElementById("typing-text");
         function typeHero() {
-            if (!typingTarget || typeIndex >= heroText.length) return;
+            if (!typingTarget) return;
+            if (typeIndex === 0) typingTarget.textContent = "";
+            if (typeIndex >= heroText.length) return;
             typingTarget.textContent += heroText.charAt(typeIndex);
             typeIndex += 1;
             setTimeout(typeHero, 85);

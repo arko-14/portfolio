@@ -2,7 +2,7 @@
 
 Personal portfolio website with a terminal/hacker aesthetic.
 
-**Live:** [sandipan14.tech](https://sandipan14.tech)
+**Live:** [sandipan.vercel.app](https://sandipan.vercel.app/)
 
 ## Tech Stack
 - Vanilla HTML/CSS/JS

@@ -1,5 +1,11 @@
 [
   {
+    "title": "Why Your LLM Semantic Cache Is a Ticking Time Bomb — And How I Fixed It",
+    "date": "2026-11-20",
+    "tags": ["LLMs", "Caching", "System Design"],
+    "url": "https://medium.com/@psandipan20/why-your-llm-semantic-cache-is-a-ticking-time-bomb-and-how-i-fixed-it-f9153f7805ce"
+  },
+  {
     "title": "I Just Wanted to See What My Model Was Doing… So I Built Observa",
     "date": "2025-10-24",
     "tags": ["MLOps", "NLP"],

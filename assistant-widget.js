@@ -320,12 +320,16 @@
 
     // Specific topics are checked before the generic "project" rule so that
     // questions like "CRID projects" or "EvalFlow project" get the detailed answer.
+    if (q.includes("kudrat") || q.includes("cloud and platform") || q.includes("platform engineer")) {
+      return "I am currently working as Software Engineer (Cloud & Platform) at Kudrat Foundation (Sep 2026 - Present) in Delhi, India.";
+    }
+
     if (q.includes("crid") || q.includes("minutes of meeting") || q.includes("meeting minutes") || q.includes("auditor") || q.includes("legal advisor")) {
-      return "At CRID India (AI/ML Engineer, May 2026 - Present) I built an unattended Azure pipeline that turns Hindi + English meeting recordings into Minutes of Meeting in SharePoint within ~5 minutes, a contact-research tool that finds an organisation's verified board and leadership in about a minute, AI Auditor and Legal Advisor platforms for BEE (Ministry of Power), and CRID India's website with SEO, analytics, and a no-code CMS (1,300+ page views).";
+      return "At CRID India (AI/ML Engineer, May 2026 - Sep 2026) I built an unattended Azure pipeline that turns Hindi + English meeting recordings into Minutes of Meeting in SharePoint within ~5 minutes, a contact-research tool that finds an organisation's verified board and leadership in about a minute, AI Auditor and Legal Advisor platforms for BEE (Ministry of Power), and CRID India's website with SEO, analytics, and a no-code CMS (1,300+ page views).";
     }
 
     if (q.includes("evalflow") || q.includes("evaluation")) {
-      return "EvalFlow is a backend-first eval platform for LLM apps with prompt versioning, benchmark runs, LLM-as-judge scoring, and prompt promotion.";
+      return "EvalFlow is an open-source LLM evaluation toolkit and backend-first platform with an MCP server, SDK, prompt versioning, benchmark runs, and LLM-as-judge scoring.";
     }
 
     if (q.includes("codecortex") || q.includes("codecortex ai") || q.includes("code cortex") || q.includes("code review")) {
@@ -333,7 +337,7 @@
     }
 
     if (q.includes("frameforge") || q.includes("frame forge") || q.includes("video")) {
-      return "FrameForge is an agentic video generation system for prompt-driven scene planning, retrieval, orchestration, and automated production pipelines.";
+      return "FrameForge is an autonomous AI video production workflow using LangGraph, VideoDB, and Groq for prompt-driven scene planning, retrieval, orchestration, and automated production pipelines.";
     }
 
     if (q.includes("observa")) {
@@ -345,11 +349,11 @@
     }
 
     if (q.includes("blog") || q.includes("blogs") || q.includes("article") || q.includes("writing") || q.includes("post") || q.includes("medium")) {
-      return "Blogs listed here: 'DAG vs LLM: Rethinking Orchestration in AI Systems', 'LLMs Don't Actually Remember You', 'How I Designed a Cryptographically Verifiable Clinical Document System', and 'I Just Wanted to See What My Model Was Doing, So I Built Observa'.";
+      return "Blogs listed here: 'Why Your LLM Semantic Cache Is a Ticking Time Bomb — And How I Fixed It', 'DAG vs LLM: Rethinking Orchestration in AI Systems', 'LLMs Don't Actually Remember You', 'How I Designed a Cryptographically Verifiable Clinical Document System', and 'I Just Wanted to See What My Model Was Doing, So I Built Observa'.";
     }
 
-    if (q.includes("experience") || q.includes("intern") || q.includes("strydden") || q.includes("robotics")) {
-      return "Experience listed here: AI/ML Engineer at CRID India (May 2026 - Present), AI & ML Intern at Strydden Technologies (June 2025 - May 2026), and Robotics Intern at Just Robotics (July 2024 - July 2025).";
+    if (q.includes("experience") || q.includes("intern") || q.includes("strydden") || q.includes("robotics") || q.includes("kudrat")) {
+      return "Experience listed here: Software Engineer (Cloud & Platform) at Kudrat Foundation (Sep 2026 - Present), AI/ML Engineer at CRID India (May 2026 - Sep 2026), AI & ML Intern at Strydden Technologies (June 2025 - May 2026), and Robotics Intern at Just Robotics (July 2024 - July 2025).";
     }
 
     if (q.includes("paper") || q.includes("papers") || q.includes("research")) {
@@ -365,7 +369,7 @@
     }
 
     if (q.includes("who are you") || q.includes("about you") || q.includes("introduce") || q.includes("sandipan") || q.includes("tell me about yourself")) {
-      return "I'm Sandipan Paul, an ML Engineer focused on agentic workflows, MLOps, and LLM systems.";
+      return "I'm Sandipan Paul, a Software Engineer focused on backend engineering, cloud infrastructure, and applied AI.";
     }
 
     return "I couldn't find that on this portfolio right now. If you want more details, contact me up.";
